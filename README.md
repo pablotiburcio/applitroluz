@@ -1,4 +1,8 @@
-# applitroluz
+<div align="center">
+ <img src="/assets/icon.png" width="100"/>
+ 
+ <h1>App Litro de Luz</h1>
+</div>
 Projeto do aplicativo para a gerência de soluções da Litro de Luz Brasil em parceria com o IFAL através do Oficinas 4.0.<br/>
 Aplicativo será desenvolvido em [React Native](https://reactnative.dev). Siga as intruções a baixo para instalar, configurar e executar o aplicativo do projeto.
 
