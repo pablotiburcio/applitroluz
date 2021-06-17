@@ -1,12 +1,8 @@
 import React from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useNavigation } from '@react-navigation/native';
-
-interface PropsItem {
-  name: string
-}
+import {Item} from '../components/Item';
 
 const DATA = [
   {
@@ -14,19 +10,6 @@ const DATA = [
   }
 ]
 
-function Item ({ name }: PropsItem) {
-  const navigation = useNavigation();
-  
-  return(
-    <TouchableOpacity style={styles.item}
-      onPress={() => {navigation.navigate(name)}}
-    >
-      <Text style={styles.name}>
-        {name}
-      </Text>
-    </TouchableOpacity>
-  )
-}
 
 export function Home() {
   return (
@@ -53,13 +36,5 @@ const styles = StyleSheet.create({
       flex: 1,
       width: '100%',
     },
-
-    item: {
-      padding: 6,
-      backgroundColor: "#f5f5f5"
-    },
-    name: {
-      fontSize: 24,  
-    }
   });
   
