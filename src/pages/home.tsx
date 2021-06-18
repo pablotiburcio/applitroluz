@@ -7,6 +7,9 @@ import {Item} from '../components/Item';
 const DATA = [
   {
     name: 'Lucas',
+  },
+  {
+    name: 'Jaiane'
   }
 ]
 
