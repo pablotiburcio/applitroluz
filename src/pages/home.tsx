@@ -21,7 +21,7 @@ export function Home() {
         style={styles.content}
         data={DATA}
         renderItem={({item}) => {return <Item name={item.name}/>}}
-        keyExtractor={(index) => index.toString()}
+        keyExtractor={(item, index) => index.toString()}
       />
     </SafeAreaView>
   );
