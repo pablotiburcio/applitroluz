@@ -10,6 +10,9 @@ const DATA = [
   },
   {
     name: 'Jaiane'
+  },
+  {
+    name: 'Marcos'
   }
 ]
 

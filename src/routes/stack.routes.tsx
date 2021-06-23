@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Home} from '../pages/home';
 import { Lucas } from '../pages/lucas';
 import { Jaiane } from '../pages/jaiane';
+import Marcos from '../pages/marcos';
 
 const StackRoutes = createStackNavigator();
 
@@ -21,6 +22,10 @@ const AppRoutes: React.FC = () => {
       <StackRoutes.Screen 
         name="Jaiane" 
         component={Jaiane}
+      />
+      <StackRoutes.Screen 
+        name="Marcos" 
+        component={Marcos}
       />
     </StackRoutes.Navigator>
   )
