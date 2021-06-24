@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {Text,
         View,
         StyleSheet,
@@ -7,16 +7,20 @@ import {Text,
         TouchableOpacity 
         
     } from "react-native";
-import { color } from "react-native-reanimated";
 
 import passo7 from "../../assets/images/lampiao/LampiaoPasso7.png";
-
 import {MaterialIcons} from '@expo/vector-icons';
-import { State } from "react-native-gesture-handler";
 import { useState } from "react";
 
+
 export function Jaiane(){
-    
+    const [visible, setVisible] = useState(false);
+
+    function funcionando(){
+        setVisible(true);
+    }
+
+ 
     return(
         <SafeAreaView style = {styles.container}>
             <View style={{alignItems: 'center', margin: 5}}>
@@ -33,26 +37,25 @@ export function Jaiane(){
 
 
             <View style={{justifyContent: 'center', alignItems: 'center', marginTop: 50, flexDirection: 'row'}}>
-                <TouchableOpacity style = {styles.button} activeOpacity={0.7}>
-                    <Text style = {styles.textButton}>
-                        <MaterialIcons name="lightbulb" size={24} color="black" />
-                    </Text>
+                <TouchableOpacity style = {styles.button} activeOpacity={0.7} >
                     <Text style = {styles.textButton}>Não Apagou</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.button} activeOpacity={0.7}>
-                    <Text style={styles.textButton}>
-                        <MaterialIcons name="lightbulb-outline" size={24} color="black" />
-                    </Text>
+                <TouchableOpacity style = {styles.button} activeOpacity={0.7} onPress={funcionando} >
                     <Text style = {styles.textButton}>Apagou</Text>
                 </TouchableOpacity>
             </View>
-
-
-            {/* <View style = {{alignItems: 'center'}}>
-                    <Text style = {styles.working}>Está Funcionando</Text>
-                </View> 
-            */}
-
+        
+            {visible && 
+                <View>
+                    <View style={styles.working}>
+                        <Text style={styles.textContent}>O lampião está funcionando</Text>
+                    </View>
+                    <TouchableOpacity style={styles.buttonBack}>
+                        <Text style={styles.textButtonBack}>Voltar ao Início</Text>
+                    </TouchableOpacity>
+                </View>
+                
+                }
             
         </SafeAreaView>
     );
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent:'center',
         alignItems: 'center',
-        backgroundColor: '#4682B4'
+        backgroundColor: '#191970'
         
     },
     numberTitle:{
@@ -98,14 +101,16 @@ const styles = StyleSheet.create({
     textContent:{
         textAlign: 'center',
         fontSize: 26,
-        color: '#696969'
+        color: 'white',
+        paddingVertical: 20,
     },
     button:{
-        backgroundColor: '#B0C4DE',
-        height: 70,
+        height: 50,
         width: 150,
         justifyContent: 'center',
-        borderRadius: 40,
+        borderRadius: 10,
+        borderColor: '#191970',
+        borderWidth: 2,
         margin: 20,
         alignItems:'center'
         
@@ -118,13 +123,22 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     working: {
-        fontSize: 26,
-        color: 'white',
         backgroundColor: '#191970',
-        borderRadius: 10,
-        paddingHorizontal: 40,
-        paddingVertical:15,
-        marginTop: 40        
+        marginTop: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+                
+    },
+    buttonBack:{
+        alignItems: 'center',
+        marginVertical: 20
+    },
+    textButtonBack:{
+        color: '#191970',
+        fontSize: 18,
+        fontWeight: 'bold',
+        borderBottomColor: '#191970',
+        borderBottomWidth: 2
     }
     
 })
