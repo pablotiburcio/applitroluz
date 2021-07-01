@@ -1,18 +1,33 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, HeaderTitle} from '@react-navigation/stack';
+import {Nunito_600SemiBold} from '@expo-google-fonts/nunito';
 
-import {Home} from '../pages/home';
+import {Home} from '../pages/Home';
 import { Lucas } from '../pages/lucas';
 import { Jaiane } from '../pages/jaiane';
+
 
 const StackRoutes = createStackNavigator();
 
 const AppRoutes: React.FC = () => {
   return(
-    <StackRoutes.Navigator headerMode='none'>
+    <StackRoutes.Navigator 
+      headerMode='screen'
+      screenOptions={{
+        headerStyle:{
+          backgroundColor: '#54ABFF'
+        },
+        headerTintColor: 'white',
+        headerTitleStyle:{
+          fontFamily: 'Nunito_600SemiBold',
+          fontSize: 15
+        },
+        headerTitleAlign: 'center'
+      }}
+      >
       <StackRoutes.Screen 
-        name="Home" 
-        component={Home}
+        name="Procedimentos de Manutenção" 
+        component={Home} 
       />
       <StackRoutes.Screen 
         name="Lucas" 
@@ -22,6 +37,7 @@ const AppRoutes: React.FC = () => {
         name="Jaiane" 
         component={Jaiane}
       />
+      
     </StackRoutes.Navigator>
   )
 }

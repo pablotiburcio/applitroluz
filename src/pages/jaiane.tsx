@@ -9,7 +9,6 @@ import {Text,
     } from "react-native";
 
 import passo7 from "../../assets/images/lampiao/LampiaoPasso7.png";
-import {MaterialIcons} from '@expo/vector-icons';
 import { useState } from "react";
 
 

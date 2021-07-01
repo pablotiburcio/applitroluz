@@ -1,43 +1,32 @@
-import React from 'react';
-import { FlatList, StyleSheet} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-import {Item} from '../components/Item';
-
-const DATA = [
-  {
-    name: 'Lucas',
-  },
-  {
-    name: 'Jaiane'
-  }
-]
+import React from "react";
+import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import { ButtonItem } from "../components/ButtonItem";
+import lampiaoImg from '../pages/assets/lampiao.png';
+import posteImg from '../pages/assets/poste.png';
+import iluminacaoInternaImg from '../pages/assets/iluminacaoInterna.png';
+import materiaisImg from '../pages/assets/materiais.png';
 
 
-export function Home() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <FlatList 
-        style={styles.content}
-        data={DATA}
-        renderItem={({item}) => {return <Item name={item.name}/>}}
-        keyExtractor={(index) => index.toString()}
-      />
-    </SafeAreaView>
-  );
+export function Home(){
+    return(
+        <SafeAreaView style={styles.container}>
+            <View style={{flexDirection: 'row'}}>
+                <ButtonItem title='Lampião' image={lampiaoImg} />
+                <ButtonItem title='Poste' image={posteImg} />
+            </View>
+            <View style={{flexDirection: 'row'}}>
+                <ButtonItem title="Iluminação Interna " image={iluminacaoInternaImg} />
+                <ButtonItem title='Materiais e funcionamento' image={materiaisImg} />
+            </View>
+        </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      padding: 10,
-      
-      justifyContent: 'center',
-    },
-    content:{
-      flex: 1,
-      width: '100%',
-    },
-  });
-  
+    container:{
+        flex: 1,
+        alignItems: 'center',
+        padding: 20,
+        
+    }
+})
