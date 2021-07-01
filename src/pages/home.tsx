@@ -10,23 +10,26 @@ import materiaisImg from '../pages/assets/materiais.png';
 export function Home(){
     return(
         <SafeAreaView style={styles.container}>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection: 'row', flex: 1}}>
                 <ButtonItem title='Lampião' image={lampiaoImg} />
                 <ButtonItem title='Poste' image={posteImg} />
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection: 'row', flex: 1}}>
                 <ButtonItem title="Iluminação Interna " image={iluminacaoInternaImg} />
                 <ButtonItem title='Materiais e funcionamento' image={materiaisImg} />
             </View>
+            <View style={{flex: 2}}>
+
+            </View>
         </SafeAreaView>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container:{
         flex: 1,
         alignItems: 'center',
-        padding: 20,
+        padding: 25,
         
     }
 })

@@ -15,15 +15,16 @@ const AppRoutes: React.FC = () => {
       headerMode='screen'
       screenOptions={{
         headerStyle:{
-          backgroundColor: '#54ABFF'
+          backgroundColor: '#54ABFF',
         },
         headerTintColor: 'white',
         headerTitleStyle:{
           fontFamily: 'Nunito_600SemiBold',
-          fontSize: 15
+          fontSize: 18,
         },
         headerTitleAlign: 'center'
-      }}
+      }
+    }
       >
       <StackRoutes.Screen 
         name="Procedimentos de Manutenção" 
