@@ -1,21 +1,22 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, ImageSourcePropType } from "react-native";
+import { StyleSheet, Text, Image, ImageSourcePropType, } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 
 
 
-type Props = RectButtonProps &{
+type Props = RectButtonProps & {
     title: string,
     image: ImageSourcePropType;
 }
 
 export function ButtonItem({title, image, ...rest}: Props){
     return(
-        <RectButton style={styles.container}>
+        <RectButton style={styles.container} {...rest}>
+            
             <Image source= {image} style={styles.image}/>
             <Text style={styles.textButton}>{title}</Text>
         </RectButton>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -32,20 +33,21 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 2,
-        elevation: 10,
+        elevation: 4,
         margin: 25,
-        padding: 10,
+        height: 100,
+        width: '30%'
         
     },
     textButton:{
-        fontSize: 16,
+        fontSize: 14,
         color: 'white',
         fontFamily: 'Nunito_700Bold',
-        textAlign: 'center'
+        textAlign: 'center',
+        
     },
     image:{
-        height: '60%',
-        width: '60%',
-        marginBottom: 2
-    }
-})
+        height: 46,
+        width: 46
+    },
+});

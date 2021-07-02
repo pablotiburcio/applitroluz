@@ -1,34 +1,65 @@
 import React from 'react';
-import {createStackNavigator, HeaderTitle} from '@react-navigation/stack';
-import {Nunito_600SemiBold} from '@expo-google-fonts/nunito';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import {Home} from '../pages/Home';
+import {Home} from '../pages/home';
 import { Lucas } from '../pages/lucas';
 import { Jaiane } from '../pages/jaiane';
+import { Lampiao } from '../pages/lampiao';
 
 
+
+const {Navigator, Screen} = createStackNavigator();
+
+export function StackRoutes(){
+  return(
+    <Navigator 
+        headerMode='screen'
+        screenOptions={{
+          headerStyle:{
+            backgroundColor: '#54ABFF',
+            
+          },
+          headerTintColor: 'white',
+          headerTitleStyle:{
+            fontFamily: 'Nunito_600SemiBold',
+            fontSize: 18,
+          },
+          headerTitleAlign: 'center'}}
+    >
+
+      <Screen name='Home' component= {Home} options={{title: 'Procedimentos de manutenção'}}/>
+      <Screen name='Lampiao' component= {Lampiao} options={{title: 'Manutenção do Lampião'}}/>
+      <Screen name='Jaiane' component= {Jaiane}/>
+    </Navigator>
+  );
+
+  }
+
+
+{/*
 const StackRoutes = createStackNavigator();
 
 const AppRoutes: React.FC = () => {
   return(
     <StackRoutes.Navigator 
-      headerMode='screen'
-      screenOptions={{
-        headerStyle:{
-          backgroundColor: '#54ABFF',
-        },
-        headerTintColor: 'white',
-        headerTitleStyle:{
-          fontFamily: 'Nunito_600SemiBold',
-          fontSize: 18,
-        },
-        headerTitleAlign: 'center'
-      }
-    }
+            headerMode='screen'
+            screenOptions={{
+              headerStyle:{
+                backgroundColor: '#54ABFF',
+              },
+              headerTintColor: 'white',
+              headerTitleStyle:{
+                fontFamily: 'Nunito_600SemiBold',
+                fontSize: 18,
+              },
+              headerTitleAlign: 'center'
+            } 
+          }
+          
       >
       <StackRoutes.Screen 
-        name="Procedimentos de Manutenção" 
-        component={Home} 
+        name="Home" 
+        component={Home}
       />
       <StackRoutes.Screen 
         name="Lucas" 
@@ -38,9 +69,14 @@ const AppRoutes: React.FC = () => {
         name="Jaiane" 
         component={Jaiane}
       />
-      
+      <StackRoutes.Screen 
+        name="Lampiao" 
+        component={Lampiao}
+      />
     </StackRoutes.Navigator>
-  )
+  );
 }
 
 export default AppRoutes;
+
+*/}
