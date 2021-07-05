@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 import { Nunito_700Bold } from "@expo-google-fonts/nunito";
+import { Entypo } from '@expo/vector-icons';
 
 type Props = RectButtonProps &{
     title: string;
@@ -11,10 +12,15 @@ type Props = RectButtonProps &{
 export function ButtonStep({title, stepNumber, ...rest}: Props){
     return(
         <RectButton style={styles.container} {...rest}>
-            <View style={styles.stepNumber}>
-                <Text style={styles.textStepNumber}>{stepNumber}</Text>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.stepNumber}>
+                    <Text style={styles.textStepNumber}>{stepNumber}</Text>
+                </View>
+                <Text style={styles.textButton}>{title}</Text>
             </View>
-            <Text style={styles.textButton}>{title}</Text>
+            <View>
+                <Entypo name="chevron-right" size={24} color="#83C2FF" />
+            </View>
         </RectButton>
     )
 }
@@ -22,12 +28,12 @@ export function ButtonStep({title, stepNumber, ...rest}: Props){
 const styles = StyleSheet.create({
     container:{
         backgroundColor: '#FDFDFD',
-        width: '100%',
+        width: '99%',
         height: 60,
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 15,
-        borderRadius: 30,
+        borderRadius: 10,
         marginVertical: 10,
         shadowColor: "#000",
         shadowOffset: {
@@ -36,7 +42,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.18,
         shadowRadius: 1,
-        elevation: 1,
+        elevation: 2,
         flexDirection: 'row'
     },
     textButton:{
@@ -45,7 +51,7 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     stepNumber:{
-        backgroundColor: '#134783',
+        backgroundColor: '#83C2FF',
         borderRadius: 30,
         width: 26,
         height: 26,

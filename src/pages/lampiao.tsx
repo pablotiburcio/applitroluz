@@ -19,19 +19,18 @@ export function Lampiao(){
                 </View>   
             </View>
             <ScrollView style={{width: '100%'}} showsVerticalScrollIndicator={false}>
-                <ButtonStep title='Etapa' stepNumber='0'/>
-                <ButtonStep title='Etapa' stepNumber='1'/>
-                <ButtonStep title='Etapa' stepNumber='2'/>
-                <ButtonStep title='Etapa' stepNumber='3'/>
-                <ButtonStep title='Etapa' stepNumber='4'/>
-                <ButtonStep title='Etapa' stepNumber='5'/>
-                <ButtonStep title='Etapa' stepNumber='6'/>
-                <ButtonStep title='Etapa' stepNumber='7'/>
-                <ButtonStep title='Etapa' stepNumber='8'/>
-                <ButtonStep title='Etapa' stepNumber='9'/>
-                <ButtonStep title='Etapa' stepNumber='10'/>
-                <ButtonStep title='Etapa' stepNumber='11'/>
-                <ButtonStep title='Etapa' stepNumber='12'/>
+                <ButtonStep title='Ligar o Botão' stepNumber='0'/>
+                <ButtonStep title='Checar conexões' stepNumber='1'/>
+                <ButtonStep title='Checar continuidade no fusível' stepNumber='2'/>
+                <ButtonStep title='Medir tensão da bateria' stepNumber='3'/>
+                <ButtonStep title='Testar continuidade do botão' stepNumber='4'/>
+                <ButtonStep title='Testar continuidade do fio vermelho...' stepNumber='5'/>
+                <ButtonStep title='Ligar bateria direto no LED' stepNumber='6'/>
+                <ButtonStep title='Plugar a placa e colocar no sol' stepNumber='7'/>
+                <ButtonStep title='Checar se as conexões estão...' stepNumber='8'/>
+                <ButtonStep title='Medir tensão no plug macho com...' stepNumber='9'/>
+                <ButtonStep title='Conectar o plug macho na fêmea...' stepNumber='10'/>
+                
 
             </ScrollView>
         </SafeAreaView>
