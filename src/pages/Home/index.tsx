@@ -1,11 +1,19 @@
 import React from "react";
-import { SafeAreaView, View, Text, StyleSheet } from "react-native";
-import { ButtonItem } from "../components/ButtonItem";
-import lampiaoImg from '../pages/assets/lampiao.png';
-import posteImg from '../pages/assets/poste.png';
-import iluminacaoInternaImg from '../pages/assets/iluminacaoInterna.png';
-import materiaisImg from '../pages/assets/materiais.png';
+import {
+    SafeAreaView,
+    View,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
+
+import lampiaoImg from '../../pages/assets/lampiao.png';
+import posteImg from '../../pages/assets/poste.png';
+import iluminacaoInternaImg from '../../pages/assets/iluminacaoInterna.png';
+import materiaisImg from '../../pages/assets/materiais.png';
+
+import { ButtonItem } from "../../components/ButtonItem";
+
+import { styles } from './styles';
 
 export function Home() {
     const navigation = useNavigation();
@@ -28,12 +36,3 @@ export function Home() {
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        padding: 25,
-
-    }
-})
