@@ -1,39 +1,49 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import {Home} from '../pages/home';
-import { Lucas } from '../pages/lucas';
+import { Home } from '../pages/Home';
 import { Jaiane } from '../pages/jaiane';
-import { Lampiao } from '../pages/lampiao';
+import { Lampiao } from '../pages/Lampiao';
 
 
 
-const {Navigator, Screen} = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator();
 
-export function StackRoutes(){
-  return(
-    <Navigator 
-        headerMode='screen'
-        screenOptions={{
-          headerStyle:{
-            backgroundColor: '#54ABFF',
-            
-          },
-          headerTintColor: 'white',
-          headerTitleStyle:{
-            fontFamily: 'Nunito_600SemiBold',
-            fontSize: 18,
-          },
-          headerTitleAlign: 'center'}}
+export function StackRoutes() {
+  return (
+    <Navigator
+      headerMode='screen'
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#54ABFF',
+        },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          fontFamily: 'Nunito_600SemiBold',
+          fontSize: 18,
+        },
+        headerTitleAlign: 'center'
+      }}
     >
+      <Screen
+        name='Home'
+        component={Home}
+        options={{ title: 'Procedimentos de manutenção' }}
+      />
 
-      <Screen name='Home' component= {Home} options={{title: 'Procedimentos de manutenção'}}/>
-      <Screen name='Lampiao' component= {Lampiao} options={{title: 'Manutenção do Lampião'}}/>
-      <Screen name='Jaiane' component= {Jaiane}/>
+      <Screen
+        name='Lampiao'
+        component={Lampiao}
+        options={{ title: 'Manutenção do Lampião' }}
+      />
+      <Screen
+        name='Jaiane'
+        component={Jaiane}
+      />
     </Navigator>
   );
 
-  }
+}
 
 
 {/*

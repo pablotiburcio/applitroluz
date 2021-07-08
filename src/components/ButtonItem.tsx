@@ -9,18 +9,18 @@ type Props = RectButtonProps & {
     image: ImageSourcePropType;
 }
 
-export function ButtonItem({title, image, ...rest}: Props){
-    return(
+export function ButtonItem({ title, image, ...rest }: Props) {
+    return (
         <RectButton style={styles.container} {...rest}>
-            
-            <Image source= {image} style={styles.image}/>
+
+            <Image source={image} style={styles.image} />
             <Text style={styles.textButton}>{title}</Text>
         </RectButton>
     );
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         backgroundColor: '#83C2FF',
         flex: 1,
         borderRadius: 15,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         shadowColor: "#000",
         shadowOffset: {
-	        height: 2,
+            height: 2,
             width: 2
         },
         shadowOpacity: 0.25,
@@ -37,16 +37,16 @@ const styles = StyleSheet.create({
         margin: 25,
         height: 100,
         width: '30%'
-        
+
     },
-    textButton:{
+    textButton: {
         fontSize: 14,
         color: 'white',
         fontFamily: 'Nunito_700Bold',
         textAlign: 'center',
-        
+
     },
-    image:{
+    image: {
         height: 46,
         width: 46
     },
