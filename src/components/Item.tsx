@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import {Nunito_400Regular} from '@expo-google-fonts/nunito';
+
 interface PropsItem {
   name: string
 }
@@ -26,6 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5f5"
   },
   name: {
-    fontSize: 24,  
+    fontSize: 24, 
+    fontFamily: 'Nunito_400Regular' 
   }
 })
