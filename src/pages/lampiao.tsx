@@ -30,8 +30,6 @@ export function Lampiao(){
                 <ButtonStep title='Checar se as conexões estão...' stepNumber='8'/>
                 <ButtonStep title='Medir tensão no plug macho com...' stepNumber='9'/>
                 <ButtonStep title='Conectar o plug macho na fêmea...' stepNumber='10'/>
-                
-
             </ScrollView>
         </SafeAreaView>
     )
