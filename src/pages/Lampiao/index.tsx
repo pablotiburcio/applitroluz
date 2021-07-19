@@ -18,9 +18,16 @@ import { Procedure, Step } from '../../utils/interfaces';
 import { styles } from "./styles";
 import { procedures } from '../../procedures.json';
 import { Item } from "../../components/Item";
-
+import { useNavigation } from "@react-navigation/native";
 
 export function Lampiao() {
+    const navigation = useNavigation();
+
+    function goStep0(){
+        navigation.navigate("Step0")
+    }
+
+    
     const [listSteps, setSteps] = useState<Step[]>(steps as Step[]);
 
     return (
@@ -31,7 +38,7 @@ export function Lampiao() {
                     <View style={{ flex: 2 }}></View>
                     <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
                         <TouchableOpacity style={styles.buttonPlay}>
-                            <Ionicons name="play" size={24} color="#5EBF2D" />
+                            <Ionicons name="play" size={24} color="#5EBF2D" onPress={goStep0} />
                         </TouchableOpacity>
                     </View>
                 </View>
