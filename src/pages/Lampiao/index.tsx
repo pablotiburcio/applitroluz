@@ -16,7 +16,7 @@ import { ButtonStep } from "../../components/ButtonStep";
 import { Procedure, Step } from '../../utils/interfaces';
 
 import { styles } from "./styles";
-import { action, steps } from '../../procedures.json';
+import { procedures } from '../../procedures.json';
 import { Item } from "../../components/Item";
 
 
