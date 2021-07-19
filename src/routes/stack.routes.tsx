@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Home } from '../pages/Home';
 import { Jaiane } from '../pages/jaiane';
 import { Lampiao } from '../pages/Lampiao';
+import { Step0 } from '../pages/Lampiao/steps';
 
 
 
@@ -39,6 +40,10 @@ export function StackRoutes() {
       <Screen
         name='Jaiane'
         component={Jaiane}
+      />
+      <Screen
+        name='Step0'
+        component={Step0}
       />
     </Navigator>
   );

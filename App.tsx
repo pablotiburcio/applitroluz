@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import React from 'react';
 import { View } from 'react-native';
 import AppLoading from 'expo-app-loading';
@@ -9,7 +9,7 @@ import {
   Nunito_700Bold,
   Nunito_400Regular,
   Nunito_600SemiBold
-} from '@expo-google-fonts/nunito'
+} from '@expo-google-fonts/nunito';
 
 export default function App() {
 
