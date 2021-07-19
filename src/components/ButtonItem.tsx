@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, Image, ImageSourcePropType, } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 
-
+import * as FileSystem from 'expo-file-system';
 
 type Props = RectButtonProps & {
     title: string,
-    image: ImageSourcePropType;
+    procedureID: number,
+    image?: string,
 }
 
-export function ButtonItem({ title, image, ...rest }: Props) {
+const i = '../pages/assets/lampiao.png';
+
+export function ButtonItem({ title, procedureID, image, ...rest }: Props) {
+    const images = [
+        require('../pages/assets/lampiao.png'),
+        require(`../pages/assets/poste.png`),
+        require(`../pages/assets/iluminacaoInterna.png`),
+        require(`../pages/assets/materiais.png`),
+    ];
+
     return (
         <RectButton style={styles.container} {...rest}>
 
-            <Image source={image} style={styles.image} />
+            <Image source={images[procedureID]} style={styles.image} />
             <Text style={styles.textButton}>{title}</Text>
         </RectButton>
     );

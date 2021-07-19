@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../pages/Home';
+import { ScreenModal } from '../pages/ScreenModal';
 import { Jaiane } from '../pages/jaiane';
 import { Lampiao } from '../pages/Lampiao';
 import { Step0 } from '../pages/Lampiao/steps';
@@ -36,6 +37,11 @@ export function StackRoutes() {
         name='Lampiao'
         component={Lampiao}
         options={{ title: 'Manutenção do Lampião' }}
+      />
+
+      <Screen
+        name='ScreenModal'
+        component={ScreenModal}
       />
       <Screen
         name='Jaiane'
