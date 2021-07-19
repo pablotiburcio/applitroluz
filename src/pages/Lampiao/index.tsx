@@ -23,12 +23,12 @@ import { useNavigation } from "@react-navigation/native";
 export function Lampiao() {
     const navigation = useNavigation();
 
-    function goStep0(){
+    function goStep0() {
         navigation.navigate("Step0")
     }
 
-    
-    const [listSteps, setSteps] = useState<Step[]>(steps as Step[]);
+
+    const [listSteps, setSteps] = useState<Step[]>(procedures[0].steps as Step[]);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -57,7 +57,7 @@ export function Lampiao() {
                 <ButtonStep title='Conectar o plug macho na fêmea...' stepNumber='10' />
             </ScrollView> */}
                 <FlatList
-                    data={steps}
+                    data={listSteps}
                     renderItem={({ item, index }) => {
                         return (
                             <ButtonStep
