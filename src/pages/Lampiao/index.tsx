@@ -16,12 +16,13 @@ import { ButtonStep } from "../../components/ButtonStep";
 import { Procedure, Step } from '../../utils/interfaces';
 
 import { styles } from "./styles";
-import { action, steps } from '../../Procedures/lampiao.json';
+import { action, steps } from '../../procedures.json';
 import { Item } from "../../components/Item";
 
 
 export function Lampiao() {
     const [listSteps, setSteps] = useState<Step[]>(steps as Step[]);
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flex: 1 }}>
@@ -54,13 +55,10 @@ export function Lampiao() {
                         return (
                             <ButtonStep
                                 title={item.description}
-                                stepNumber={String(index)} />
+                                stepNumber={String(index)}
+                            />
                         )
                     }}
-                // scrollEnabled
-                // contentContainerStyle={{
-                //     flex: 1,
-                // }}
                 />
             </View>
         </SafeAreaView>
