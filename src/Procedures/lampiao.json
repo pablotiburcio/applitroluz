@@ -1,0 +1,205 @@
+{
+  "steps": [
+    {
+      "id": "T0",
+      "type": "start",
+      "description": "Ligar botão",
+      "question": "Acendeu?",
+      "work": {
+        "label": "Sim",
+        "jump": "T7"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "T1"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "test",
+      "description": "Checar se conexões estão certas e buscar mau contato",
+      "question": "Acendeu?",
+      "work": {
+        "label": "Sim",
+        "jump": "T7"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "T2"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "test",
+      "description": "Checar continuidade do fusível",
+      "question": "Fusível ok?",
+      "work": {
+        "label": "Sim",
+        "jump": "T3"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "A0"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "test",
+      "description": "Medir tensão da bateria",
+      "question": "Qual a tensão?",
+      "work": {
+        "label": "Maior que 10",
+        "jump": "T4"
+      },
+      "failure": {
+        "label": "Menor que 10",
+        "jump": "A1"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "test",
+      "description": "Testar continuidade do botão",
+      "question": "Botão ok?",
+      "work": {
+        "label": "Sim",
+        "jump": "T5"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "A2"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "test",
+      "description": "Testar continuidade do fio vermelho da bateria",
+      "question": "Fio vermelho da bateria ok?",
+      "work": {
+        "label": "Sim",
+        "jump": "T6"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "A3"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "test",
+      "description": "Ligar bateria direto no LED",
+      "question": "Ligou?",
+      "work": {
+        "label": "Sim",
+        "jump": "A7"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "A4"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "test",
+      "description": "Plugar a placa e colocar no sol",
+      "question": "Apagou?",
+      "work": {
+        "label": "Sim",
+        "jump": "T11"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "T8"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "test",
+      "description": "Checar se conexões estão certas e buscar mau contato",
+      "question": "Apagou?",
+      "work": {
+        "label": "Sim",
+        "jump": "T11"
+      },
+      "failure": {
+        "label": "Não",
+        "jump": "T9"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "test",
+      "description": "Medir tensão no plug macho com placa ao sol",
+      "question": "Qual a tensão?",
+      "work": {
+        "label": "Maior que 14V",
+        "jump": "T10"
+      },
+      "failure": {
+        "label": "Menor que 14V",
+        "jump": "A5"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "test",
+      "description": "Conectar o plug macho na fêmea e medir tensão nos fios da fêmea (desconectados do circuito)",
+      "question": "Qual a tensão?",
+      "work": {
+        "label": "Maior que 14V",
+        "jump": "A7"
+      },
+      "failure": {
+        "label": "Menor que 14V",
+        "jump": "A6"
+      }
+    }
+  ],
+  "action": [
+    {
+      "id": "A0",
+      "type": "action",
+      "description": "Trocar fusível e recomeçar do início."
+    },
+    {
+      "id": "A1",
+      "type": "action",
+      "description": "Carregar ou trocar bateria e recomeçar do início."
+    },
+    {
+      "id": "A2",
+      "type": "action",
+      "description": "Trocar Botão e recomeçar do início."
+    },
+    {
+      "id": "A3",
+      "type": "action",
+      "description": "Trocar fio vermelho da bateria e recomeçar do início."
+    },
+    {
+      "id": "A4",
+      "type": "action",
+      "description": "Trocar LED e recomeçar do início."
+    },
+    {
+      "id": "A5",
+      "type": "action",
+      "description": "Trocar plug ou placa e recomeçar do início."
+    },
+    {
+      "id": "A6",
+      "type": "action",
+      "description": "Trocar fêmea e recomeçar do início."
+    },
+    {
+      "id": "A7",
+      "type": "action",
+      "description": "Trocar circuito e recomeçar do início."
+    },
+    {
+      "id": "T11",
+      "type": "end",
+      "description": "Conectar o plug macho na fêmea e medir tensão nos fios da fêmea (desconectados do circuito)"
+    }
+  ]
+}
