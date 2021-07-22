@@ -1,12 +1,12 @@
 export interface Action {
     id: string,
-    type: "action" | "end",
+    type: string,
     description: string
 }
 
-export interface Step {
+export type Step = {
     id: string,
-    type: "start" | "test",
+    type: string,
     description: string,
     question: string,
     work: {
@@ -19,6 +19,8 @@ export interface Step {
     }
 }
 export interface Procedure {
+    procedureID: number,
+    title: string,
     steps: Step[],
-    action: Action[]
+    actions: Action[]
 }

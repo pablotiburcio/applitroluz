@@ -3,15 +3,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../pages/Home';
 import { ScreenModal } from '../pages/ScreenModal';
-import { Jaiane } from '../pages/jaiane';
-import { Lampiao } from '../pages/Lampiao';
-import { Step0 } from '../pages/Lampiao/steps';
+import { ScreenList } from '../pages/ScreenList';
+import { ScreenStep } from '../pages/ScreenStep';
+import { useProcedure } from '../Contexts/context';
 
 
 
 const { Navigator, Screen } = createStackNavigator();
 
 export function StackRoutes() {
+  const { procedureCurrent } = useProcedure();
+
   return (
     <Navigator
       headerMode='screen'
@@ -34,9 +36,9 @@ export function StackRoutes() {
       />
 
       <Screen
-        name='Lampiao'
-        component={Lampiao}
-        options={{ title: 'Manutenção do Lampião' }}
+        name='ScreenList'
+        component={ScreenList}
+        options={{ title: `Manutenção do ${procedureCurrent.title}` }}
       />
 
       <Screen
@@ -44,60 +46,10 @@ export function StackRoutes() {
         component={ScreenModal}
       />
       <Screen
-        name='Jaiane'
-        component={Jaiane}
-      />
-      <Screen
-        name='Step0'
-        component={Step0}
+        name="ScreenStep"
+        component={ScreenStep}
       />
     </Navigator>
   );
 
 }
-
-
-{/*
-const StackRoutes = createStackNavigator();
-
-const AppRoutes: React.FC = () => {
-  return(
-    <StackRoutes.Navigator 
-            headerMode='screen'
-            screenOptions={{
-              headerStyle:{
-                backgroundColor: '#54ABFF',
-              },
-              headerTintColor: 'white',
-              headerTitleStyle:{
-                fontFamily: 'Nunito_600SemiBold',
-                fontSize: 18,
-              },
-              headerTitleAlign: 'center'
-            } 
-          }
-          
-      >
-      <StackRoutes.Screen 
-        name="Home" 
-        component={Home}
-      />
-      <StackRoutes.Screen 
-        name="Lucas" 
-        component={Lucas}
-      />
-      <StackRoutes.Screen 
-        name="Jaiane" 
-        component={Jaiane}
-      />
-      <StackRoutes.Screen 
-        name="Lampiao" 
-        component={Lampiao}
-      />
-    </StackRoutes.Navigator>
-  );
-}
-
-export default AppRoutes;
-
-*/}
