@@ -16,19 +16,24 @@ import { ButtonStep } from "../../components/ButtonStep";
 import { Procedure, Step } from '../../utils/interfaces';
 
 import { styles } from "./styles";
-import { procedures } from '../../procedures.json';
+
 import { Item } from "../../components/Item";
 import { useNavigation } from "@react-navigation/native";
+import { useProcedure } from "../../Contexts/context";
 
-export function Lampiao() {
+export function ScreenList() {
+    const { procedureCurrent, setStep } = useProcedure();
+    const [listSteps, setSteps] = useState<Step[]>(procedureCurrent.steps as Step[]);
+
     const navigation = useNavigation();
 
-    function goStep0() {
-        navigation.navigate("Step0")
+    function goStep() {
+        setStep(procedureCurrent.steps[0]);
+        navigation.navigate("ScreenStep");
     }
 
 
-    const [listSteps, setSteps] = useState<Step[]>(procedures[0].steps as Step[]);
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -38,24 +43,11 @@ export function Lampiao() {
                     <View style={{ flex: 2 }}></View>
                     <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
                         <TouchableOpacity style={styles.buttonPlay}>
-                            <Ionicons name="play" size={24} color="#5EBF2D" onPress={goStep0} />
+                            <Ionicons name="play" size={24} color="#5EBF2D" onPress={goStep} />
                         </TouchableOpacity>
                     </View>
                 </View>
-                {/* 
-            <ScrollView style={{ width: '100%' }} showsVerticalScrollIndicator={false}>
-                <ButtonStep title='Ligar o Botão' stepNumber='0' />
-                <ButtonStep title='Checar conexões' stepNumber='1' />
-                <ButtonStep title='Checar continuidade no fusível' stepNumber='2' />
-                <ButtonStep title='Medir tensão da bateria' stepNumber='3' />
-                <ButtonStep title='Testar continuidade do botão' stepNumber='4' />
-                <ButtonStep title='Testar continuidade do fio vermelho...' stepNumber='5' />
-                <ButtonStep title='Ligar bateria direto no LED' stepNumber='6' />
-                <ButtonStep title='Plugar a placa e colocar no sol' stepNumber='7' />
-                <ButtonStep title='Checar se as conexões estão...' stepNumber='8' />
-                <ButtonStep title='Medir tensão no plug macho com...' stepNumber='9' />
-                <ButtonStep title='Conectar o plug macho na fêmea...' stepNumber='10' />
-            </ScrollView> */}
+
                 <FlatList
                     data={listSteps}
                     renderItem={({ item, index }) => {

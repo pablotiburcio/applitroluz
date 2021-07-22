@@ -3,7 +3,6 @@
     {
       "procedureID": 0,
       "title": "Lampião",
-      "image": "../pages/assets/lampiao.png",
       "steps": [
         {
           "id": "T0",
@@ -211,23 +210,77 @@
     {
       "procedureID": 1,
       "title": "Iluminação Interna",
-      "image": "src/pages/assets/lampiao.png",
-      "steps": [],
-      "actions": []
+      "steps": [
+        {
+          "id": "T0",
+          "type": "start",
+          "description": "Ligar iluminação interna",
+          "question": "Acendeu?",
+          "work": {
+            "label": "Sim",
+            "jump": "T7"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "T1"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "id": "A0",
+          "type": "action",
+          "description": "Trocar fusível e recomeçar do início."
+        }
+      ]
     },
     {
       "procedureID": 2,
       "title": "Materiais e funcionamento",
-      "image": "src/pages/assets/lampiao.png",
-      "steps": [],
+      "steps": [
+        {
+          "id": "T0",
+          "type": "start",
+          "description": "Ligar botão",
+          "question": "Acendeu?",
+          "work": {
+            "label": "Sim",
+            "jump": "T7"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "T1"
+          }
+        }
+      ],
       "actions": []
     },
     {
       "procedureID": 3,
       "title": "Poste",
-      "image": "src/pages/assets/lampiao.png",
-      "steps": [],
-      "actions": []
+      "steps": [
+        {
+          "id": "T0",
+          "type": "start",
+          "description": "Ligar poste",
+          "question": "Acendeu?",
+          "work": {
+            "label": "Sim",
+            "jump": "T7"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "T1"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "id": "A0",
+          "type": "action",
+          "description": "Trocar fusível e recomeçar do início."
+        }
+      ]
     }
   ]
 }

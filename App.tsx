@@ -10,6 +10,7 @@ import {
   Nunito_400Regular,
   Nunito_600SemiBold
 } from '@expo-google-fonts/nunito';
+import { Provider } from './src/Contexts/context';
 
 export default function App() {
 
@@ -24,7 +25,10 @@ export default function App() {
   }
 
   return (
-    <Routes />
+    <Provider>
+      <Routes />
+    </Provider>
+
   );
 }
 

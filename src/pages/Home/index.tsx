@@ -4,69 +4,37 @@ import {
     SafeAreaView,
     View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 import { procedures } from '../../procedures.json';
+
 import lampiaoImg from '../assets/lampiao.png'
 
 import { ButtonItem } from "../../components/ButtonItem";
 
 import { styles } from './styles';
 
-interface ProceduresProps {
-    procedureID: number,
-    title: string,
-    image: string,
-    steps: {
-        id: string,
-        type: string,
-        description: string,
-        question: string,
-        work: {
-            label: string,
-            jump: string
-        },
-        failure: {
-            label: string,
-            jump: string
-        }
-    }[],
-
-    actions: {
-        id: string
-        type: string
-        description: string
-    }[],
-}
-
-interface Procedures {
-    procedure: ProceduresProps[]
-}
+import { Procedure } from "../../utils/interfaces";
+import { useProcedure } from "../../Contexts/context";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
-    const navigation = useNavigation();
+    const { setProc } = useProcedure();
 
-    function goScreemDetails() {
-        navigation.navigate('Lampiao');
+    const navigation = useNavigation();
+    function goScreemDetails(procedureID: number) {
+        setProc(procedures[procedureID]);
+        navigation.navigate("ScreenList");
     }
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* <View style={{ flexDirection: 'row' }}>
-                <ButtonItem title='Lampião' procedureID={0} onPress={goScreemDetails} />
-                <ButtonItem title='Poste' procedureID={1} />
-            </View>
-            <View style={{ flexDirection: 'row' }}>
-                <ButtonItem title="Iluminação Interna " procedureID={2} />
-                <ButtonItem title='Materiais e funcionamento' procedureID={3} />
-            </View> */}
             <View >
                 <FlatList
                     data={procedures}
                     renderItem={({ item }) => (
                         <ButtonItem
                             title={item.title}
-                            onPress={goScreemDetails}
+                            onPress={() => goScreemDetails(item.procedureID)}
                             procedureID={item.procedureID}
                         />
                     )}
@@ -75,8 +43,6 @@ export function Home() {
                     contentContainerStyle={styles.containerList}
                 />
             </View>
-
-
         </SafeAreaView>
     );
 }
