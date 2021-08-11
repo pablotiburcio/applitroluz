@@ -3,6 +3,7 @@ import { StyleSheet, Text, Image, ImageSourcePropType, } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 
 import * as FileSystem from 'expo-file-system';
+import { ImageProps } from "react-native";
 
 type Props = RectButtonProps & {
     title: string,
@@ -23,7 +24,7 @@ export function ButtonItem({ title, procedureID, image, ...rest }: Props) {
     return (
         <RectButton style={styles.container} {...rest}>
 
-            <Image source={images[procedureID]} style={styles.image} />
+            <Image source={{ uri: `require('../pages/assets/lampiao.png')`, width: 60, height: 60 }} style={styles.image} />
             <Text style={styles.textButton}>{title}</Text>
         </RectButton>
     );

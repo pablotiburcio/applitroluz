@@ -20,6 +20,7 @@ export type Step = {
 }
 export interface Procedure {
     procedureID: number,
+    image: string,
     title: string,
     steps: Step[],
     actions: Action[]

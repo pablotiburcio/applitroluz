@@ -3,6 +3,7 @@
     {
       "procedureID": 0,
       "title": "Lampião",
+      "image": "/src/pages/assets/lampiao.png",
       "steps": [
         {
           "id": "T0",
@@ -210,6 +211,7 @@
     {
       "procedureID": 1,
       "title": "Iluminação Interna",
+      "image": "lampiao",
       "steps": [
         {
           "id": "T0",
@@ -237,6 +239,7 @@
     {
       "procedureID": 2,
       "title": "Materiais e funcionamento",
+      "image": "src/pages/assets/lampiao.png",
       "steps": [
         {
           "id": "T0",
@@ -253,11 +256,18 @@
           }
         }
       ],
-      "actions": []
+      "actions": [
+        {
+          "id": "A0",
+          "type": "action",
+          "description": "Trocar fusível e recomeçar do início."
+        }
+      ]
     },
     {
       "procedureID": 3,
       "title": "Poste",
+      "image": "src/pages/assets/lampiao.png",
       "steps": [
         {
           "id": "T0",
