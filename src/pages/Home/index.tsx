@@ -3,6 +3,7 @@ import {
     FlatList,
     SafeAreaView,
     View,
+    Image
 } from "react-native";
 
 import { procedures } from '../../procedures.json';
@@ -17,8 +18,12 @@ import { Procedure } from "../../utils/interfaces";
 import { useProcedure } from "../../Contexts/context";
 import { useNavigation } from "@react-navigation/native";
 
+
+
 export function Home() {
     const { setProc } = useProcedure();
+
+
 
     const navigation = useNavigation();
     function goScreemDetails(procedureID: number) {
