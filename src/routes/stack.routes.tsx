@@ -6,7 +6,7 @@ import { ScreenModal } from '../pages/ScreenModal';
 import { ScreenList } from '../pages/ScreenList';
 import { ScreenStep } from '../pages/ScreenStep';
 import { useProcedure } from '../Contexts/context';
-import {Ressons} from '../pages/Ressons'
+import { Ressons } from '../pages/Ressons';
 
 
 
