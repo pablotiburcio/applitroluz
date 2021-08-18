@@ -23,5 +23,6 @@ export interface Procedure {
     image: string,
     title: string,
     steps: Step[],
-    actions: Action[]
+    actions: Action[],
+    finished: string
 }
