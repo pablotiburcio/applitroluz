@@ -16,9 +16,9 @@ const i = '../pages/assets/lampiao.png';
 export function ButtonItem({ title, procedureID, image, ...rest }: Props) {
     const images = [
         require('../pages/assets/lampiao.png'),
-        require(`../pages/assets/poste.png`),
         require(`../pages/assets/iluminacaoInterna.png`),
         require(`../pages/assets/materiais.png`),
+        require(`../pages/assets/poste.png`),
     ];
 
     return (

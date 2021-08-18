@@ -22,21 +22,24 @@ import { Procedure } from "../../utils/interfaces";
 
 import RNFS from 'react-native-fs';
 
+
+
 export function Home() {
     const { setProc } = useProcedure();
 
     // const imageURI = Asset.fromModule(require(`../assets/${procedures[0].image}.png`)).uri;
 
     // console.log(imageURI);
-    let image;
-    RNFS.readFile(`../assets/${procedures[0].image}.png`, 'base64')
-        .then(res => {
-            console.log(res);
-            image = res;
-        });
+    // let image;
+    // RNFS.readFile(`../assets/${procedures[0].image}.png`, 'base64')
+    //     .then(res => {
+    //         console.log(res);
+    //         image = res;
+    //     });
 
     var uri = FileSystem.documentDirectory + procedures[0].image;
     console.log(uri);
+
 
     const navigation = useNavigation();
     function goScreemDetails(procedureID: number) {
@@ -61,11 +64,11 @@ export function Home() {
                     numColumns={2}
                     contentContainerStyle={styles.containerList}
                 />
-                <Image
+                {/* <Image
                     source={{ uri: image, width: 60, height: 60 }}
                     width={30}
                     height={30}
-                />
+                /> */}
 
             </View>
         </SafeAreaView>
