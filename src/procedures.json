@@ -110,7 +110,7 @@
           "question": "Apagou?",
           "work": {
             "label": "Sim",
-            "jump": "T11"
+            "jump": "end"
           },
           "failure": {
             "label": "Não",
@@ -124,7 +124,7 @@
           "question": "Apagou?",
           "work": {
             "label": "Sim",
-            "jump": "T11"
+            "jump": "end"
           },
           "failure": {
             "label": "Não",
@@ -200,13 +200,9 @@
           "id": "A7",
           "type": "action",
           "description": "Trocar circuito e recomeçar do início."
-        },
-        {
-          "id": "T11",
-          "type": "end",
-          "description": "Conectar o plug macho na fêmea e medir tensão nos fios da fêmea (desconectados do circuito)"
         }
-      ]
+      ],
+      "finished": "Aproveite a Luz!"
     },
     {
       "procedureID": 1,
@@ -234,7 +230,8 @@
           "type": "action",
           "description": "Trocar fusível e recomeçar do início."
         }
-      ]
+      ],
+      "finished": "Colocar no modo de operação"
     },
     {
       "procedureID": 2,
@@ -262,7 +259,8 @@
           "type": "action",
           "description": "Trocar fusível e recomeçar do início."
         }
-      ]
+      ],
+      "finished": "por enquanto não tem nada"
     },
     {
       "procedureID": 3,
@@ -360,7 +358,7 @@
           "question": "Apagou?",
           "work": {
             "label": "Sim",
-            "jump": "T9"
+            "jump": "end"
           },
           "failure": {
             "label": "Não",
@@ -374,7 +372,7 @@
           "question": "Apagou?",
           "work": {
             "label": "Sim",
-            "jump": "T9"
+            "jump": "end"
           },
           "failure": {
             "label": "Não",
@@ -426,13 +424,9 @@
           "id": "A5",
           "type": "action",
           "description": "Trocar controlador e recomeçar do início."
-        },
-        {
-          "id": "T9",
-          "type": "end",
-          "description": "Colocar no modo de operação"
         }
-      ]
+      ],
+      "finished": "Colocar no modo de operação"
     }
   ]
 }
