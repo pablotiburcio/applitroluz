@@ -1,44 +1,28 @@
 import React from "react";
 import {
     FlatList,
-    Image,
-    ImageProps,
     SafeAreaView,
     View,
+    Image
 } from "react-native";
-import * as FileSystem from 'expo-file-system';
 
 import { procedures } from '../../procedures.json';
 
 import lampiaoImg from '../assets/lampiao.png'
 
-import { ButtonItem } from "../../components/ButtonItem";
+import { ButtonItem } from "../../components/ButtonItem/ButtonItem";
 
 import { styles } from './styles';
 
+import { Procedure } from "../../utils/interfaces";
 import { useProcedure } from "../../Contexts/context";
 import { useNavigation } from "@react-navigation/native";
-import { Procedure } from "../../utils/interfaces";
-
-import RNFS from 'react-native-fs';
 
 
 
 export function Home() {
     const { setProc } = useProcedure();
 
-    // const imageURI = Asset.fromModule(require(`../assets/${procedures[0].image}.png`)).uri;
-
-    // console.log(imageURI);
-    // let image;
-    // RNFS.readFile(`../assets/${procedures[0].image}.png`, 'base64')
-    //     .then(res => {
-    //         console.log(res);
-    //         image = res;
-    //     });
-
-    var uri = FileSystem.documentDirectory + procedures[0].image;
-    console.log(uri);
 
 
     const navigation = useNavigation();
@@ -55,21 +39,16 @@ export function Home() {
                     renderItem={({ item }) => (
                         <ButtonItem
                             title={item.title}
-                            image={uri}
                             onPress={() => goScreemDetails(item.procedureID)}
                             procedureID={item.procedureID}
+                            margin={25}
+                            font={16}
                         />
                     )}
                     keyExtractor={item => String(item.procedureID)}
                     numColumns={2}
                     contentContainerStyle={styles.containerList}
                 />
-                {/* <Image
-                    source={{ uri: image, width: 60, height: 60 }}
-                    width={30}
-                    height={30}
-                /> */}
-
             </View>
         </SafeAreaView>
     );

@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 
 import { Procedure, Action, Step } from './../utils/interfaces';
-
+import { useNavigation } from '@react-navigation/native';
 interface ContextData {
     procedureCurrent: Procedure,
     stepCurent: Step,
@@ -17,6 +17,8 @@ interface ContextData {
     notSolveProblem: boolean,
     setProc: (procedure: Procedure) => void;
     setStep: (step: Step) => void;
+    setAction: (action: Action) => void;
+    handleAction: () => void;
 }
 
 interface ProviderProps {
@@ -34,12 +36,24 @@ function Provider({ children }: ProviderProps) {
     const [showAction, setShowAction] = useState(false);
     const [solvedProblem, setSolvedProblem] = useState(false);
 
+    // const navigate = useNavigation();
+
     function setProc(procedure: Procedure) {
         setProcedureCurrent(procedure);
     }
 
     function setStep(step: Step) {
         setStepCurent(step);
+    }
+
+    function setAction(action: Action) {
+        setActionCurrent(action);
+        setShowAction(true);
+    }
+
+    function handleAction() {
+        console.log(!showAction)
+
     }
 
     return (
@@ -52,7 +66,9 @@ function Provider({ children }: ProviderProps) {
                 solvedProblem,
                 stepCurent,
                 setProc,
-                setStep
+                setStep,
+                setAction,
+                handleAction
             }}
         >
             {children}

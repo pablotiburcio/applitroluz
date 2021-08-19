@@ -12,12 +12,12 @@ import { FlatList } from "react-native-gesture-handler";
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-import { ButtonStep } from "../../components/ButtonStep";
+import { ButtonStep } from "../../components/ButtonStep/ButtonStep";
 import { Procedure, Step } from '../../utils/interfaces';
 
 import { styles } from "./styles";
 
-import { Item } from "../../components/Item";
+import { Item } from "../../components/Item/Item";
 import { useNavigation } from "@react-navigation/native";
 import { useProcedure } from "../../Contexts/context";
 
