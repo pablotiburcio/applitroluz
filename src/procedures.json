@@ -217,11 +217,11 @@
           "description": "Ligar iluminação interna",
           "question": "Acendeu?",
           "work": {
-            "type": "steps",
+            "type": "step",
             "jump": 7
           },
           "failure": {
-            "type": "steps",
+            "type": "step",
             "jump": 1
           }
         }
@@ -244,11 +244,11 @@
           "description": "Ligar botão",
           "question": "Acendeu?",
           "work": {
-            "type": "steps",
+            "type": "step",
             "jump": 7
           },
           "failure": {
-            "type": "steps",
+            "type": "step",
             "jump": 1
           }
         }
@@ -262,15 +262,127 @@
         {
           "id": 0,
           "type": "start",
-          "description": "Ligar poste",
+          "description": "Colocar no modo teste e cobrir a placa solar por completo",
           "question": "Acendeu?",
           "work": {
-            "type": "steps",
-            "jump": 7
+            "type": "step",
+            "jump": 6
           },
           "failure": {
-            "type": "steps",
+            "type": "step",
             "jump": 1
+          }
+        },
+        {
+          "id": 1,
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "Acendeu?",
+          "work": {
+            "type": "step",
+            "jump": 6
+          },
+          "failure": {
+            "type": "step",
+            "jump": 2
+          }
+        },
+        {
+          "id": 2,
+          "type": "test",
+          "description": "Checar continuidade do fusível",
+          "question": "Fusível ok?",
+          "work": {
+            "type": "step",
+            "jump": 3
+          },
+          "failure": {
+            "type": "action",
+            "jump": 0
+          }
+        },
+        {
+          "id": 3,
+          "type": "test",
+          "description": "Medir tensão da bateria",
+          "question": "A tensão é maior que 11V?",
+          "work": {
+            "type": "step",
+            "jump": 4
+          },
+          "failure": {
+            "type": "action",
+            "jump": 1
+          }
+        },
+        {
+          "id": 4,
+          "type": "test",
+          "description": "Testar continuidade do fio vermelho da bateria",
+          "question": "Fio vermelho da bateria ok?",
+          "work": {
+            "type": "step",
+            "jump": 5
+          },
+          "failure": {
+            "type": "action",
+            "jump": 2
+          }
+        },
+        {
+          "id": 5,
+          "type": "test",
+          "description": "Ligar bateria direto no LED",
+          "question": "Ligou?",
+          "work": {
+            "type": "action",
+            "jump": 5
+          },
+          "failure": {
+            "type": "action",
+            "jump": 3
+          }
+        },
+        {
+          "id": 6,
+          "type": "test",
+          "description": "Colocar o poste ao sol",
+          "question": "Apagou?",
+          "work": {
+            "type": "step",
+            "jump": 9
+          },
+          "failure": {
+            "type": "step",
+            "jump": 7
+          }
+        },
+        {
+          "id": 7,
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "Apagou?",
+          "work": {
+            "type": "step",
+            "jump": 9
+          },
+          "failure": {
+            "type": "step",
+            "jump": 8
+          }
+        },
+        {
+          "id": 8,
+          "type": "test",
+          "description": " Medir tensão na conexão da placa solar ao sol",
+          "question": "A tensão é maior que 14V?",
+          "work": {
+            "type": "action",
+            "jump": 5
+          },
+          "failure": {
+            "type": "action",
+            "jump": 4
           }
         }
       ],
@@ -278,7 +390,37 @@
         {
           "id": "A0",
           "type": "action",
-          "description": "Trocar fusível e recomeçar do início."
+          "description": " Trocar fusível e recomeçar do início."
+        },
+        {
+          "id": "A1",
+          "type": "action",
+          "description": " Carregar ou trocar bateria e recomeçar do início."
+        },
+        {
+          "id": "A2",
+          "type": "action",
+          "description": " Trocar fio vermelho da bateria e recomeçar do início."
+        },
+        {
+          "id": "A3",
+          "type": "action",
+          "description": "Trocar LED e recomeçar do início."
+        },
+        {
+          "id": "A4",
+          "type": "action",
+          "description": " Trocar placa e recomeçar do início."
+        },
+        {
+          "id": "A5",
+          "type": "action",
+          "description": "Trocar controlador e recomeçar do início."
+        },
+        {
+          "id": "T9",
+          "type": "end",
+          "description": "Colocar no modo de operação"
         }
       ]
     }
