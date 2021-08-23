@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SelectGuide from '../pages/SelectGuide/index';
 import SelectStep from '../pages/SelectStep/index';
 import DetailedStep from '../pages/DetailedStep/index'
+import { Ressons } from '../pages/Ressons';
 
 import { useGuide } from '../contexts/guide';
 import HeaderRight from '../components/HeaderRight';
@@ -44,6 +45,10 @@ export function StackRoutes() {
         name='DetailedStep'
         component={DetailedStep}
         options={{ title: '', headerRight:() => <HeaderRight id={currentStep.id} /> }}
+      />
+      <Screen
+        name="Ressons"
+        component={Ressons}
       />
     </Navigator>
   );

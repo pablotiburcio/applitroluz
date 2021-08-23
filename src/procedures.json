@@ -384,6 +384,118 @@
             "type": "action",
             "jump": 4
           }
+        },
+        {
+          "id": "T1",
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "Acendeu?",
+          "work": {
+            "label": "Sim",
+            "jump": "T6"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "T2"
+          }
+        },
+        {
+          "id": "T2",
+          "type": "test",
+          "description": "Checar continuidade do fusível",
+          "question": "Fusível ok?",
+          "work": {
+            "label": "Sim",
+            "jump": "T3"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "A0"
+          }
+        },
+        {
+          "id": "T3",
+          "type": "test",
+          "description": "Medir tensão da bateria",
+          "question": "Qual a tensão?",
+          "work": {
+            "label": "Maior que 11",
+            "jump": "T4"
+          },
+          "failure": {
+            "label": "Menor que 11",
+            "jump": "A1"
+          }
+        },
+        {
+          "id": "T4",
+          "type": "test",
+          "description": "Testar continuidade do fio vermelho da bateria",
+          "question": "Fio vermelho da bateria ok?",
+          "work": {
+            "label": "Sim",
+            "jump": "T5"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "A2"
+          }
+        },
+        {
+          "id": "T5",
+          "type": "test",
+          "description": "Ligar bateria direto no LED",
+          "question": "Ligou?",
+          "work": {
+            "label": "Sim",
+            "jump": "A5"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "A3"
+          }
+        },
+        {
+          "id": "T6",
+          "type": "test",
+          "description": "Colocar o poste ao sol",
+          "question": "Apagou?",
+          "work": {
+            "label": "Sim",
+            "jump": "T9"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "T7"
+          }
+        },
+        {
+          "id": "T7",
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "Apagou?",
+          "work": {
+            "label": "Sim",
+            "jump": "T9"
+          },
+          "failure": {
+            "label": "Não",
+            "jump": "T8"
+          }
+        },
+        {
+          "id": "T8",
+          "type": "test",
+          "description": " Medir tensão na conexão da placa solar ao sol",
+          "question": "Qual a tensão?",
+          "work": {
+            "label": "Maior que 14V",
+            "jump": " A5"
+          },
+          "failure": {
+            "label": "Menor que 14V",
+            "jump": "A4"
+          }
         }
       ],
       "actions": [
