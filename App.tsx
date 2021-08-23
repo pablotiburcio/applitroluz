@@ -1,6 +1,4 @@
-import { StatusBar } from 'react-native';
 import React from 'react';
-import { View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import { Routes } from './src/routes';
@@ -10,7 +8,7 @@ import {
   Nunito_400Regular,
   Nunito_600SemiBold
 } from '@expo-google-fonts/nunito';
-import { Provider } from './src/Contexts/context';
+import { GuideProvider } from './src/contexts/guide';
 
 export default function App() {
 
@@ -25,10 +23,9 @@ export default function App() {
   }
 
   return (
-    <Provider>
+    <GuideProvider>
       <Routes />
-    </Provider>
-
+    </GuideProvider>
   );
 }
 

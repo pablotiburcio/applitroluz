@@ -1,26 +1,37 @@
-export interface Action {
-    id: string,
-    type: string,
-    description: string
+export interface GuideContextData {
+  procedures: Guide[];
+  currentGuide: Guide;
+  currentStep: Step
+  currentAction: Action;
+  setGuide(guideId: number): void;
+  setStep(stepId: number): void;
+  setAction(actionId: number): void;
 }
 
-export type Step = {
-    id: string,
-    type: string,
-    description: string,
-    question: string,
-    work: {
-        label: string,
-        jump: string
-    },
-    failure: {
-        label: string,
-        jump: string
-    }
+export interface Guide {
+  id: number;
+  title: string;
+  steps: Step[];
+  actions: Action[];
 }
-export interface Procedure {
-    procedureID: number,
-    title: string,
-    steps: Step[],
-    actions: Action[]
+
+export interface Step {
+  id: number;
+  type: string;
+  description: string;
+  question: string;
+  work: {
+    type: string;
+    jump: number;
+  };
+  failure: {
+    type: string;
+    jump: number;
+  }
+}
+
+export interface Action {
+  id: string;
+  type: string;
+  description: string;
 }

@@ -1,18 +1,17 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Home } from '../pages/Home';
-import { ScreenModal } from '../pages/ScreenModal';
-import { ScreenList } from '../pages/ScreenList';
-import { ScreenStep } from '../pages/ScreenStep';
-import { useProcedure } from '../Contexts/context';
+import SelectGuide from '../pages/SelectGuide/index';
+import SelectStep from '../pages/SelectStep/index';
+import DetailedStep from '../pages/DetailedStep/index'
 
-
+import { useGuide } from '../contexts/guide';
+import HeaderRight from '../components/HeaderRight';
 
 const { Navigator, Screen } = createStackNavigator();
 
 export function StackRoutes() {
-  const { procedureCurrent } = useProcedure();
+  const { currentGuide, currentStep } = useGuide();
 
   return (
     <Navigator
@@ -30,24 +29,21 @@ export function StackRoutes() {
       }}
     >
       <Screen
-        name='Home'
-        component={Home}
+        name='SelectGuide'
+        component={SelectGuide}
         options={{ title: 'Procedimentos de manutenção' }}
       />
 
       <Screen
-        name='ScreenList'
-        component={ScreenList}
-        options={{ title: `Manutenção do ${procedureCurrent.title}` }}
+        name='SelectStep'
+        component={SelectStep}
+        options={{ title: `Manutenção do ${currentGuide.title}` }}
       />
 
       <Screen
-        name='ScreenModal'
-        component={ScreenModal}
-      />
-      <Screen
-        name="ScreenStep"
-        component={ScreenStep}
+        name='DetailedStep'
+        component={DetailedStep}
+        options={{ title: '', headerRight:() => <HeaderRight id={currentStep.id} /> }}
       />
     </Navigator>
   );
