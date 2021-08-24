@@ -36,7 +36,7 @@ const Ressons = () => {
           style={styles.checkbox}
           tintColors={{ true: '#5EBF2D', }}
         />
-        <Text style={styles.label}>Não soube.</Text>
+        <Text style={styles.labelNS}>Não soube.</Text>
       </View>
 
 
@@ -48,7 +48,7 @@ const Ressons = () => {
           tintColors={{ true: '#5EBF2D', }}
 
         />
-        <Text style={styles.label}>Não Tenho matérial</Text>
+        <Text style={styles.labelNTM}>Não Tenho matérial</Text>
       </View>
 
 
@@ -61,14 +61,14 @@ const Ressons = () => {
           style={styles.checkbox}
           tintColors={{ true: '#5EBF2D', }}
         />
-        <Text style={styles.label}>Não  tenho ferramenta.</Text>
+        <Text style={styles.labelNTF}>Não  tenho ferramenta.</Text>
       </View>
 
 
       {/*--------------------------------- AbA de  texto e botão de prosseguir  --------------------------------  */}
 
       <View>
-        <Text style={{ paddingLeft: 50, fontSize: 15, color: "#505050" }}> Outros: </Text>
+        <Text style={{ paddingLeft: 20, fontSize: 15, color: "#505050" }}> Outros: </Text>
         <TextInput
           style={styles.input}
           onChangeText={onChangeText}
@@ -80,7 +80,8 @@ const Ressons = () => {
 
 
       <View >
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+        onPress={() => navigation.navigate('formulario')}>
           <Text>Procesguir</Text>
         </TouchableOpacity>
       </View>
@@ -90,9 +91,6 @@ const Ressons = () => {
     </View>
   );
 };
-
-
-
 export {
   Ressons
 };
