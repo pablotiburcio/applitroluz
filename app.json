@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "applitro",
-    "slug": "applitro",
+    "name": "App Litro de Luz",
+    "slug": "applitrodeluz",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/litro-de-luz-icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,9 +21,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/litro-de-luz-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.applitrodeluz"
     },
     "web": {
       "favicon": "./assets/favicon.png"
