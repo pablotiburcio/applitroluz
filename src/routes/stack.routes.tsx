@@ -1,11 +1,12 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Home } from '../pages/Home';
+import SelectGuide from '../pages/SelectGuide';
+import SelectStep from '../pages/SelectStep';
+import DetailedStep from '../pages/DetailedStep';
+import FinishedGuide from '../pages/FinishedGuide';
 import { ScreenModal } from '../pages/ScreenModal';
-import { ScreenList } from '../pages/ScreenList';
-import { ScreenStep } from '../pages/ScreenStep';
-import { useProcedure } from '../Contexts/context';
+import { useGuide } from '../contexts/guide';
 import { Ressons } from '../pages/Ressons';
 
 
@@ -13,7 +14,7 @@ import { Ressons } from '../pages/Ressons';
 const { Navigator, Screen } = createStackNavigator();
 
 export function StackRoutes() {
-  const { procedureCurrent } = useProcedure();
+  const { currentGuide } = useGuide();
 
   return (
     <Navigator
@@ -22,7 +23,7 @@ export function StackRoutes() {
         headerStyle: {
           backgroundColor: '#54ABFF',
         },
-        headerTintColor: 'white',
+        headerTintColor: '#FFFFFF',
         headerTitleStyle: {
           fontFamily: 'Nunito_600SemiBold',
           fontSize: 18,
@@ -31,24 +32,24 @@ export function StackRoutes() {
       }}
     >
       <Screen
-        name='Home'
-        component={Home}
+        name='SelectGuide'
+        component={SelectGuide}
         options={{ title: 'Procedimentos de manutenção' }}
       />
-
       <Screen
-        name='ScreenList'
-        component={ScreenList}
-        options={{ title: `Manutenção do ${procedureCurrent.title}` }}
-      />
-
-      <Screen
-        name='ScreenModal'
-        component={ScreenModal}
+        name='SelectStep'
+        component={SelectStep}
+        options={{ title: `Manutenção do ${currentGuide.title}` }}
       />
       <Screen
-        name="ScreenStep"
-        component={ScreenStep}
+        name="DetailedStep"
+        component={DetailedStep}
+        options={{ title: '', headerStyle:{backgroundColor: '#FFFFFF', elevation: 0}, headerTintColor: '#54ABFF' }}
+      />
+      <Screen
+        name="FinishedGuide"
+        component={FinishedGuide}
+        options={{ headerShown: false }}
       />
       <Screen
         name="Ressons"
