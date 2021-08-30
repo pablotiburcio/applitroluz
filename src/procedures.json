@@ -1,161 +1,161 @@
 {
   "procedures": [
     {
-      "procedureID": 0,
+      "id": 0,
       "title": "Lampião",
       "steps": [
         {
-          "id": "T0",
+          "id": 0,
           "type": "start",
           "description": "Ligar botão",
           "question": "Acendeu?",
           "work": {
-            "label": "Sim",
-            "jump": "T7"
+            "type": "step",
+            "jump": 7
           },
           "failure": {
-            "label": "Não",
-            "jump": "T1"
+            "type": "step",
+            "jump": 1
           }
         },
         {
-          "id": "T1",
+          "id": 1,
           "type": "test",
           "description": "Checar se conexões estão certas e buscar mau contato",
           "question": "Acendeu?",
           "work": {
-            "label": "Sim",
-            "jump": "T7"
+            "type": "step",
+            "jump": 7
           },
           "failure": {
-            "label": "Não",
-            "jump": "T2"
+            "type": "step",
+            "jump": 2
           }
         },
         {
-          "id": "T2",
+          "id": 2,
           "type": "test",
           "description": "Checar continuidade do fusível",
           "question": "Fusível ok?",
           "work": {
-            "label": "Sim",
-            "jump": "T3"
+            "type": "step",
+            "jump": 3
           },
           "failure": {
-            "label": "Não",
-            "jump": "A0"
+            "type": "action",
+            "jump": 0
           }
         },
         {
-          "id": "T3",
+          "id": 3,
           "type": "test",
           "description": "Medir tensão da bateria",
-          "question": "Qual a tensão?",
+          "question": "A tensão é maior que 10?",
           "work": {
-            "label": "Maior que 10",
-            "jump": "T4"
+            "type": "step",
+            "jump": 4
           },
           "failure": {
-            "label": "Menor que 10",
-            "jump": "A1"
+            "type": "action",
+            "jump": 1
           }
         },
         {
-          "id": "T4",
+          "id": 4,
           "type": "test",
           "description": "Testar continuidade do botão",
           "question": "Botão ok?",
           "work": {
-            "label": "Sim",
-            "jump": "T5"
+            "type": "step",
+            "jump": 5
           },
           "failure": {
-            "label": "Não",
-            "jump": "A2"
+            "type": "action",
+            "jump": 2
           }
         },
         {
-          "id": "T5",
+          "id": 5,
           "type": "test",
           "description": "Testar continuidade do fio vermelho da bateria",
           "question": "Fio vermelho da bateria ok?",
           "work": {
-            "label": "Sim",
-            "jump": "T6"
+            "type": "step",
+            "jump": 6
           },
           "failure": {
-            "label": "Não",
-            "jump": "A3"
+            "type": "action",
+            "jump": 3
           }
         },
         {
-          "id": "T6",
+          "id": 6,
           "type": "test",
           "description": "Ligar bateria direto no LED",
           "question": "Ligou?",
           "work": {
-            "label": "Sim",
-            "jump": "A7"
+            "type": "action",
+            "jump": 7
           },
           "failure": {
-            "label": "Não",
-            "jump": "A4"
+            "type": "action",
+            "jump": 4
           }
         },
         {
-          "id": "T7",
+          "id": 7,
           "type": "test",
           "description": "Plugar a placa e colocar no sol",
           "question": "Apagou?",
           "work": {
-            "label": "Sim",
-            "jump": "T11"
+            "type": "done",
+            "jump": 11
           },
           "failure": {
-            "label": "Não",
-            "jump": "T8"
+            "type": "step",
+            "jump": 8
           }
         },
         {
-          "id": "T8",
+          "id": 8,
           "type": "test",
           "description": "Checar se conexões estão certas e buscar mau contato",
           "question": "Apagou?",
           "work": {
-            "label": "Sim",
-            "jump": "T11"
+            "type": "done",
+            "jump": 11
           },
           "failure": {
-            "label": "Não",
-            "jump": "T9"
+            "type": "step",
+            "jump": 9
           }
         },
         {
-          "id": "T9",
+          "id": 9,
           "type": "test",
           "description": "Medir tensão no plug macho com placa ao sol",
-          "question": "Qual a tensão?",
+          "question": "A tensão é maior que 14V?",
           "work": {
-            "label": "Maior que 14V",
-            "jump": "T10"
+            "type": "step",
+            "jump": 10
           },
           "failure": {
-            "label": "Menor que 14V",
-            "jump": "A5"
+            "type": "action",
+            "jump": 5
           }
         },
         {
-          "id": "T10",
+          "id": 10,
           "type": "test",
           "description": "Conectar o plug macho na fêmea e medir tensão nos fios da fêmea (desconectados do circuito)",
-          "question": "Qual a tensão?",
+          "question": "A tensão maior que 14V?",
           "work": {
-            "label": "Maior que 14V",
-            "jump": "A7"
+            "type": "action",
+            "jump": 7
           },
           "failure": {
-            "label": "Menor que 14V",
-            "jump": "A6"
+            "type": "action",
+            "jump": 6
           }
         }
       ],
@@ -208,21 +208,21 @@
       ]
     },
     {
-      "procedureID": 1,
+      "id": 1,
       "title": "Iluminação Interna",
       "steps": [
         {
-          "id": "T0",
+          "id": 0,
           "type": "start",
           "description": "Ligar iluminação interna",
           "question": "Acendeu?",
           "work": {
-            "label": "Sim",
-            "jump": "T7"
+            "type": "step",
+            "jump": 7
           },
           "failure": {
-            "label": "Não",
-            "jump": "T1"
+            "type": "step",
+            "jump": 1
           }
         }
       ],
@@ -235,154 +235,266 @@
       ]
     },
     {
-      "procedureID": 2,
+      "id": 2,
       "title": "Materiais e funcionamento",
       "steps": [
         {
-          "id": "T0",
+          "id": 0,
           "type": "start",
           "description": "Ligar botão",
           "question": "Acendeu?",
           "work": {
-            "label": "Sim",
-            "jump": "T7"
+            "type": "step",
+            "jump": 7
           },
           "failure": {
-            "label": "Não",
-            "jump": "T1"
+            "type": "step",
+            "jump": 1
           }
         }
       ],
       "actions": []
     },
     {
-      "procedureID": 3,
+      "id": 3,
       "title": "Poste",
       "steps": [
         {
-          "id": "T0",
+          "id": 0,
           "type": "start",
           "description": "Colocar no modo teste e cobrir a placa solar por completo",
           "question": "Acendeu?",
           "work": {
-            "label": "Sim",
-            "jump": "T6"
+            "type": "step",
+            "jump": 6
           },
           "failure": {
-            "label": "Não",
-            "jump": "T1"
+            "type": "step",
+            "jump": 1
           }
         },
         {
-          "id": "T1",
+          "id": 1,
           "type": "test",
           "description": "Checar se conexões estão certas e buscar mau contato",
           "question": "Acendeu?",
           "work": {
-            "label": "Sim",
-            "jump": "T6"
+            "type": "step",
+            "jump": 6
           },
           "failure": {
-            "label": "Não",
-            "jump": "T2"
+            "type": "step",
+            "jump": 2
           }
         },
         {
-          "id": "T2",
+          "id": 2,
           "type": "test",
           "description": "Checar continuidade do fusível",
           "question": "Fusível ok?",
           "work": {
-            "label": "Sim",
-            "jump": "T3"
+            "type": "step",
+            "jump": 3
           },
           "failure": {
-            "label": "Não",
-            "jump": "A0"
+            "type": "action",
+            "jump": 0
           }
         },
         {
-          "id": "T3",
+          "id": 3,
           "type": "test",
           "description": "Medir tensão da bateria",
-          "question": "Qual a tensão?",
+          "question": "A tensão é maior que 11V?",
           "work": {
-            "label": "Maior que 11",
-            "jump": "T4"
+            "type": "step",
+            "jump": 4
           },
           "failure": {
-            "label": "Menor que 11",
-            "jump": "A1"
+            "type": "action",
+            "jump": 1
           }
         },
         {
-          "id": "T4",
+          "id": 4,
           "type": "test",
           "description": "Testar continuidade do fio vermelho da bateria",
           "question": "Fio vermelho da bateria ok?",
           "work": {
-            "label": "Sim",
-            "jump": "T5"
+            "type": "step",
+            "jump": 5
           },
           "failure": {
-            "label": "Não",
-            "jump": "A2"
+            "type": "action",
+            "jump": 2
           }
         },
         {
-          "id": "T5",
+          "id": 5,
           "type": "test",
           "description": "Ligar bateria direto no LED",
           "question": "Ligou?",
           "work": {
-            "label": "Sim",
-            "jump": "A5"
+            "type": "action",
+            "jump": 5
           },
           "failure": {
-            "label": "Não",
-            "jump": "A3"
+            "type": "action",
+            "jump": 3
           }
         },
         {
-          "id": "T6",
+          "id": 6,
           "type": "test",
           "description": "Colocar o poste ao sol",
           "question": "Apagou?",
           "work": {
-            "label": "Sim",
-            "jump": "T9"
+            "type": "step",
+            "jump": 9
           },
           "failure": {
-            "label": "Não",
-            "jump": "T7"
+            "type": "step",
+            "jump": 7
           }
         },
         {
-          "id": "T7",
+          "id": 7,
           "type": "test",
           "description": "Checar se conexões estão certas e buscar mau contato",
           "question": "Apagou?",
           "work": {
-            "label": "Sim",
-            "jump": "T9"
+            "type": "step",
+            "jump": 9
           },
           "failure": {
-            "label": "Não",
-            "jump": "T8"
+            "type": "step",
+            "jump": 8
           }
         },
         {
-          "id": "T8",
+          "id": 8,
           "type": "test",
           "description": " Medir tensão na conexão da placa solar ao sol",
-          "question": "Qual a tensão?",
+          "question": "A tensão é maior que 14V?",
           "work": {
-            "label": "Maior que 14V",
-            "jump": " A5"
+            "type": "action",
+            "jump": 5
           },
           "failure": {
-            "label": "Menor que 14V",
-            "jump": "A4"
+            "type": "action",
+            "jump": 4
+          }
+        },
+        {
+          "id": 1,
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "Acendeu?",
+          "work": {
+            "type": "step",
+            "jump": 6
+          },
+          "failure": {
+            "type": "step",
+            "jump": 2
+          }
+        },
+        {
+          "id": 2,
+          "type": "test",
+          "description": "Checar continuidade do fusível",
+          "question": "Fusível ok?",
+          "work": {
+            "type": "step",
+            "jump": 3
+          },
+          "failure": {
+            "type": "action",
+            "jump": 0
+          }
+        },
+        {
+          "id": 3,
+          "type": "test",
+          "description": "Medir tensão da bateria",
+          "question": "A tensão é maior que 11V?",
+          "work": {
+            "type": "step",
+            "jump": 4
+          },
+          "failure": {
+            "type": "action",
+            "jump": 1
+          }
+        },
+        {
+          "id": 4,
+          "type": "test",
+          "description": "Testar continuidade do fio vermelho da bateria",
+          "question": "Fio vermelho da bateria ok?",
+          "work": {
+            "type": "step",
+            "jump": 5
+          },
+          "failure": {
+            "type": "action",
+            "jump": 2
+          }
+        },
+        {
+          "id": 5,
+          "type": "test",
+          "description": "Ligar bateria direto no LED",
+          "question": "Ligou?",
+          "work": {
+            "type": "action",
+            "jump": 5
+          },
+          "failure": {
+            "type": "action",
+            "jump": 3
+          }
+        },
+        {
+          "id": 6,
+          "type": "test",
+          "description": "Colocar o poste ao sol",
+          "question": "Apagou?",
+          "work": {
+            "type": "step",
+            "jump": 9
+          },
+          "failure": {
+            "type": "step",
+            "jump": 7
+          }
+        },
+        {
+          "id": 7,
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "Apagou?",
+          "work": {
+            "type": "step",
+            "jump": 9
+          },
+          "failure": {
+            "type": "step",
+            "jump": 8
+          }
+        },
+        {
+          "id": 8,
+          "type": "test",
+          "description": " Medir tensão na conexão da placa solar ao sol",
+          "question": "A tensão é maior que 14V?",
+          "work": {
+            "type": "action",
+            "jump": 5
+          },
+          "failure": {
+            "type": "action",
+            "jump": 4
           }
         }
       ],
