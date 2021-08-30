@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
 
-import PrimaryButton from "../../components/PrimaryButton";
-import styles from './styles';
+import { PrimaryButton } from "../../components/PrimaryButton";
 
 import { GUIDE_ICON } from "../../utils/public_assets";
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';
+
+import styles from './styles';
 
 function FinishedGuide() {
   const { currentGuide } = useGuide();
@@ -19,7 +20,7 @@ function FinishedGuide() {
   return (
     <View style={styles.container}>
       <View style={styles.imageWrapper}>
-        <Image 
+        <Image
           source={GUIDE_ICON[currentGuide.id]}
           style={{
             width: '100%',
@@ -29,9 +30,9 @@ function FinishedGuide() {
       </View>
       <Text style={styles.title}>Está funcionando!!!</Text>
       <Text style={styles.subtitle}>Aproveite a luz!</Text>
-      <View style={{height: 40}} />
-      <PrimaryButton 
-        title='Voltar para a tela inicial' 
+      <View style={{ height: 40 }} />
+      <PrimaryButton
+        title='Voltar para a tela inicial'
         color='#2689E8'
         onPress={goToSelectGuide}
       />

@@ -1,23 +1,26 @@
 import React from 'react';
 import { Image, Text } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 import { GUIDE_ICON } from '../../utils/public_assets';
 import styles from './styles';
 
-const SmallCardButton: React.FC = ({ id, title, onPress }) => {
+interface Props extends RectButtonProps {
+  idImage: number,
+  title: string,
+}
+
+export const SmallCardButton = ({ idImage, title, onPress }: Props) => {
   return (
-    <RectButton 
-      onPress={() => onPress(id)} 
+    <RectButton
+      onPress={onPress}
       style={styles.container}
     >
-      <Image 
-        source={GUIDE_ICON[id]}
+      <Image
+        source={GUIDE_ICON[idImage]}
         style={styles.image}
       />
       <Text style={styles.textButton}>{title}</Text>
     </RectButton>
   );
 };
-
-export default SmallCardButton;

@@ -1,25 +1,30 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, } from '@expo/vector-icons';
+
 import styles from './styles';
 
-const IconButton: React.FC = ({ title, icon, color, onPress }) => {
+interface Props extends RectButtonProps {
+  title: string,
+  color: string,
+  icon: keyof typeof MaterialIcons.glyphMap;
+}
+
+export const IconButton = ({ title, onPress, color, icon }: Props) => {
   return (
-    <RectButton 
-      onPress={() => onPress()}
-      style={[styles.container, {backgroundColor: color}]}
+    <RectButton
+      onPress={onPress}
+      style={[styles.container, { backgroundColor: color }]}
     >
       <MaterialIcons
-        name={icon} 
-        size={22} 
+        name={icon}
+        size={22}
         color="#FFFFFF"
-        style={{ marginRight: 6 }} 
+        style={{ marginRight: 6 }}
       />
       <Text style={styles.title}>{title}</Text>
     </RectButton>
   );
 };
-
-export default IconButton;
