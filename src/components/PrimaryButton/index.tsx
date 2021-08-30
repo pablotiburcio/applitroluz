@@ -1,12 +1,17 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import styles from './styles';
 
-const PrimaryButton: React.FC = ({ title, color, onPress }) => {
+interface Props extends TouchableOpacityProps {
+  title: string,
+  color: string
+}
+
+export const PrimaryButton = ({ title, color, onPress }: Props) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity 
-        onPress={onPress} 
+      <TouchableOpacity
+        onPress={onPress}
         style={[styles.button, { backgroundColor: color }]}
       >
         <Text style={styles.textButton}>{title}</Text>
@@ -14,5 +19,3 @@ const PrimaryButton: React.FC = ({ title, color, onPress }) => {
     </View>
   );
 };
-
-export default PrimaryButton;

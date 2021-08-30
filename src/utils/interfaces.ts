@@ -1,7 +1,7 @@
 export interface GuideContextData {
   procedures: Guide[];
   currentGuide: Guide;
-  currentStep: Step
+  currentStep: Step;
   currentAction: Action;
   previousStep: number[];
   isProblemSolved: boolean;
