@@ -7,6 +7,7 @@ import { ScreenList } from '../pages/ScreenList';
 import { ScreenStep } from '../pages/ScreenStep';
 import { useProcedure } from '../Contexts/context';
 import { Ressons } from '../pages/Ressons';
+import { Form } from '../pages/Form'
 
 
 
@@ -53,6 +54,10 @@ export function StackRoutes() {
       <Screen
         name="Ressons"
         component={Ressons}
+      />
+      <Screen
+        name="Form"
+        component={Form}
       />
     </Navigator>
   );
