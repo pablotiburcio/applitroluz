@@ -31,7 +31,7 @@ export function StackRoutes() {
         headerTitleAlign: 'center'
       }}
     >
-      {/* <Screen
+      <Screen
         name='Home'
         component={Home}
         options={{ title: 'Procedimentos de manutenção' }}
@@ -50,7 +50,7 @@ export function StackRoutes() {
       <Screen
         name="ScreenStep"
         component={ScreenStep}
-      /> */}
+      />
       <Screen
         name="Ressons"
         component={Ressons}

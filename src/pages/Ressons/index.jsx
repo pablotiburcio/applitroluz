@@ -15,18 +15,15 @@ const Ressons = () => {
 
   const IsPassValue=()=>{
 
-    if(isNotKnew === true && isNotHaveMaterial === false && isNotHaveToll === false){
+    if(isNotKnew === true ){
       navigation.navigate('Form', {
         isNotKnew:"Não soube",
         isothers:text})
-
     }else if(isNotKnew === true && isNotHaveMaterial === true && isNotHaveToll === false){
       navigation.navigate('Form', {
         isNotKnew:"Não soube", 
         isNotHaveMaterial: "Não tenho matérial",
         isothers:text})
-
-
     }else if(isNotKnew === true && isNotHaveMaterial === true && isNotHaveToll === true){
       navigation.navigate('Form', {
         isNotKnew:"Não soube", 

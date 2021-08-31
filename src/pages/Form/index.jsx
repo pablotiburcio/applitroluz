@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { styles } from './styles';
-import {Picker, View, Text, TouchableOpacity,Button, TextInput,Linking,SafeAreaView,ScrollView} from "react-native";
- 
+import {Picker, View, Text, TouchableOpacity, TextInput,Linking,SafeAreaView,ScrollView} from "react-native";
 
 
 const Form  = ({route}) => {
   const [selectedValue, setSelectedValue] = useState("Sim");
-  const [text, onChangeText] = React.useState(null); //dados do input
+  const [text, onChangeText] = React.useState(""); //dados do input
 
-  const Whatsapp=async()=>{
-    a=alert("olá mundo")
-
-    await Linking.openURL("https://wa.me/+558299121089?text=olamundo");
-
+  const Whatsapp =() =>{
+    Linking.openURL(`https://wa.me/+558299145197?text=${route.params?.isNotKnew}`);
   }
   
   
