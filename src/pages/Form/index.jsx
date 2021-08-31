@@ -4,7 +4,7 @@ import {Picker, View, Text, TouchableOpacity,Button, TextInput,Linking,SafeAreaV
  
 
 
-const Form  = () => {
+const Form  = ({route}) => {
   const [selectedValue, setSelectedValue] = useState("Sim");
   const [text, onChangeText] = React.useState(null); //dados do input
 
@@ -32,8 +32,10 @@ const Form  = () => {
           <View >
           <Text style={{fontWeight:"bold"}}>Motivo do contato:</Text>
           <View style={styles.RessonsContainer}>
-          <Text style={{padding:5}}>Não soube</Text>
-          <Text style={{padding:5}}>Não soube</Text>
+          <Text style={{padding:5}}>{route.params?.isNotKnew}</Text>
+          <Text style={{padding:5}}>{route.params?.isNotHaveMaterial}</Text>
+          <Text style={{padding:5}}>{route.params?.isNotHaveToll}</Text>
+          <Text style={{padding:5}}>{route.params?.isothers}</Text>
           
           </View>
           </View>
