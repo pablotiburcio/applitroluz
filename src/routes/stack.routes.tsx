@@ -8,6 +8,7 @@ import FinishedGuide from '../pages/FinishedGuide';
 import { ScreenModal } from '../pages/ScreenModal';
 import { useGuide } from '../contexts/guide';
 import { Ressons } from '../pages/Ressons';
+import { Form } from '../pages/Form'
 
 
 
@@ -54,6 +55,10 @@ export function StackRoutes() {
       <Screen
         name="Ressons"
         component={Ressons}
+      />
+      <Screen
+        name="Form"
+        component={Form}
       />
     </Navigator>
   );
