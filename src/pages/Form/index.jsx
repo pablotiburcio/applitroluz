@@ -8,7 +8,14 @@ const Form  = ({route}) => {
   const [text, onChangeText] = React.useState(""); //dados do input
 
   const Whatsapp =() =>{
-    Linking.openURL(`https://wa.me/+558299145197?text=${route.params?.isNotKnew}`);
+    Linking.openURL(`https://wa.me/+558299145197?text=${ 
+      
+              "*Problemas citados:*", "\n",
+              route.params?.isNotKnew, "\n",
+              route.params?.isNotHaveMaterial, "\n",
+              route.params?.isNotHaveToll,  "\n",
+              route.params?.isothers,  "\n",
+              "Codigo da solução: ", text}`);
   }
   
   
