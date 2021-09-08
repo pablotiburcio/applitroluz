@@ -4,14 +4,13 @@ import { View, Text, Image } from 'react-native';
 import { IconButton } from '../../components/IconButton';
 import { FailureModal } from '../../components/FailureModal';
 
-import { LAMPIAO_STEP_IMAGE } from '../../utils/public_assets';
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
 function DetailedStep() {
-  const { currentStep, previousStep, currentAction, setStep, setAction, setLastStep } = useGuide();
+  const { currentGuide, currentStep, previousStep, currentAction, setStep, setAction, setLastStep } = useGuide();
   const [isModalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
 
@@ -55,7 +54,7 @@ function DetailedStep() {
         <Text style={styles.title}>{currentStep.description}</Text>
         <Image
           style={styles.image}
-          source={LAMPIAO_STEP_IMAGE[currentStep.id]}
+          source={{uri: `asset:/procedure/${currentGuide.name}/step${currentStep.id}.png`}}
           resizeMode="contain"
         />
         <View style={styles.questionCard}>

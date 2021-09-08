@@ -13,6 +13,7 @@ export interface GuideContextData {
 
 export interface Guide {
   id: number;
+  name: string;
   title: string;
   steps: Step[];
   actions: Action[];

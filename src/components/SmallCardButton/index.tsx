@@ -2,7 +2,6 @@ import React from 'react';
 import { Image, Text } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
-import { GUIDE_ICON } from '../../utils/public_assets';
 import styles from './styles';
 
 interface Props extends RectButtonProps {
@@ -17,7 +16,7 @@ export const SmallCardButton = ({ idImage, title, onPress }: Props) => {
       style={styles.container}
     >
       <Image
-        source={GUIDE_ICON[idImage]}
+        source={{uri: `asset:/procedure/guide${idImage}.png`}}
         style={styles.image}
       />
       <Text style={styles.textButton}>{title}</Text>

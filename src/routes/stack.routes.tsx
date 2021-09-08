@@ -5,7 +5,7 @@ import SelectGuide from '../pages/SelectGuide';
 import SelectStep from '../pages/SelectStep';
 import DetailedStep from '../pages/DetailedStep';
 import FinishedGuide from '../pages/FinishedGuide';
-import { ScreenModal } from '../pages/ScreenModal';
+
 import { useGuide } from '../contexts/guide';
 import { Ressons } from '../pages/Ressons';
 import { Form } from '../pages/Form'
@@ -29,7 +29,7 @@ export function StackRoutes() {
           fontFamily: 'Nunito_600SemiBold',
           fontSize: 18,
         },
-        headerTitleAlign: 'center'
+        headerTitleAlign: 'center',
       }}
     >
       <Screen
