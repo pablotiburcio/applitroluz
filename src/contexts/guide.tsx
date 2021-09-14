@@ -29,15 +29,15 @@ const GuideProvider: React.FC = ({ children }) => {
 
   return (
     <GuideContext.Provider
-      value={{ 
-        procedures, 
-        currentGuide, 
-        currentStep, 
+      value={{
+        procedures,
+        currentGuide,
+        currentStep,
         currentAction,
         previousStep,
-        isProblemSolved, 
-        setGuide, 
-        setStep, 
+        isProblemSolved,
+        setGuide,
+        setStep,
         setAction,
         setLastStep
       }}>
@@ -46,7 +46,7 @@ const GuideProvider: React.FC = ({ children }) => {
   );
 };
 
-function useGuide(){
+function useGuide() {
   const context = useContext(GuideContext);
 
   return context;

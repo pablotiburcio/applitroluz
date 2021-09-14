@@ -162,49 +162,49 @@
       ],
       "actions": [
         {
-          "id": "A0",
+          "id": 0,
           "type": "action",
           "description": "Trocar fusível e recomeçar do início."
         },
         {
-          "id": "A1",
+          "id": 1,
           "type": "action",
           "description": "Carregar ou trocar bateria e recomeçar do início."
         },
         {
-          "id": "A2",
+          "id": 2,
           "type": "action",
           "description": "Trocar Botão e recomeçar do início."
         },
         {
-          "id": "A3",
+          "id": 3,
           "type": "action",
           "description": "Trocar fio vermelho da bateria e recomeçar do início."
         },
         {
-          "id": "A4",
+          "id": 4,
           "type": "action",
           "description": "Trocar LED e recomeçar do início."
         },
         {
-          "id": "A5",
+          "id": 5,
           "type": "action",
           "description": "Trocar plug ou placa e recomeçar do início."
         },
         {
-          "id": "A6",
+          "id": 6,
           "type": "action",
           "description": "Trocar fêmea e recomeçar do início."
         },
         {
-          "id": "A7",
+          "id": 7,
           "type": "action",
           "description": "Trocar circuito e recomeçar do início."
         },
         {
-          "id": "T11",
+          "id": 11,
           "type": "end",
-          "description": "Conectar o plug macho na fêmea e medir tensão nos fios da fêmea (desconectados do circuito)"
+          "description": "Aproveite a Luz!"
         }
       ]
     },
@@ -216,23 +216,217 @@
         {
           "id": 0,
           "type": "start",
-          "description": "Ligar iluminação interna",
-          "question": "Acendeu?",
+          "description": "Colocar no modo teste, cobrir a placa solar por completo até a luz verde do carregador apagar e testar carregador USB e LEDs",
+          "question": "USB carregou e LEDs acenderam?",
           "work": {
             "type": "step",
-            "jump": 7
+            "jump": 8
           },
           "failure": {
             "type": "step",
             "jump": 1
           }
+        },
+        {
+          "id": 1,
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "USB carregou e LEDs acenderam?",
+          "work": {
+            "type": "step",
+            "jump": 8
+          },
+          "failure": {
+            "type": "step",
+            "jump": 2
+          }
+        },
+        {
+          "id": 2,
+          "type": "test",
+          "description": "Checar se LED vermelho controlador está aceso",
+          "question": "LED vermelho ok?",
+          "work": {
+            "type": "step",
+            "jump": 3
+          },
+          "failure": {
+            "type": "step",
+            "jump": 5
+          }
+        },
+        {
+          "id": 3,
+          "type": "test",
+          "description": "Testar continuidade do interruptor",
+          "question": "Interruptor ok?",
+          "work": {
+            "type": "step",
+            "jump": 4
+          },
+          "failure": {
+            "type": "action",
+            "jump": 0
+          }
+        },
+        {
+          "id": 4,
+          "type": "test",
+          "description": "Ligar carregador USB e/ou LEDs direto na bateria",
+          "question": "Ligou?",
+          "work": {
+            "type": "action",
+            "jump": 7
+          },
+          "failure": {
+            "type": "action",
+            "jump": 1
+          }
+        },
+        {
+          "id": 5,
+          "type": "test",
+          "description": "Checar continuidade de todos os fusíveis",
+          "question": "Fusível ok?",
+          "work": {
+            "type": "step",
+            "jump": 6
+          },
+          "failure": {
+            "type": "action",
+            "jump": 2
+          }
+        },
+        {
+          "id": 6,
+          "type": "test",
+          "description": "Medir tensão de todas as baterias",
+          "question": "A tensão é maior que 11v?",
+          "work": {
+            "type": "step",
+            "jump": 7
+          },
+          "failure": {
+            "type": "action",
+            "jump": 3
+          }
+        },
+        {
+          "id": 7,
+          "type": "test",
+          "description": "Testar continuidade de todos os fios vermelhos da bateria",
+          "question": "Fio vermelho da bateria ok?",
+          "work": {
+            "type": "action",
+            "jump": 7
+          },
+          "failure": {
+            "type": "action",
+            "jump": 4
+          }
+        },
+        {
+          "id": 8,
+          "type": "test",
+          "description": "Colocar a placa ao sol",
+          "question": "USB parou de carregar e LEDs apagaram?",
+          "work": {
+            "type": "done",
+            "jump": 8
+          },
+          "failure": {
+            "type": "step",
+            "jump": 9
+          }
+        },
+        {
+          "id": 9,
+          "type": "test",
+          "description": "Checar se conexões estão certas e buscar mau contato",
+          "question": "USB parou de carregar e LEDs apagaram?",
+          "work": {
+            "type": "done",
+            "jump": 8
+          },
+          "failure": {
+            "type": "step",
+            "jump": 10
+          }
+        },
+        {
+          "id": 10,
+          "type": "test",
+          "description": "Checar se LED verde do controlador está aceso",
+          "question": "LED verde ok?",
+          "work": {
+            "type": "action",
+            "jump": 5
+          },
+          "failure": {
+            "type": "step",
+            "jump": 11
+          }
+        },
+        {
+          "id": 11,
+          "type": "test",
+          "description": "Medir tensão na conexão da placa solar ao sol",
+          "question": "Tensão maior que 14V?",
+          "work": {
+            "type": "action",
+            "jump": 7
+          },
+          "failure": {
+            "type": "action",
+            "jump": 6
+          }
         }
       ],
       "actions": [
         {
-          "id": "A0",
+          "id": 0,
+          "type": "action",
+          "description": "Trocar interruptor e recomeçar do início."
+        },
+        {
+          "id": 1,
+          "type": "action",
+          "description": "Trocar LEDs e/ou carregador USB e recomeçar do início."
+        },
+        {
+          "id": 2,
           "type": "action",
           "description": "Trocar fusível e recomeçar do início."
+        },
+        {
+          "id": 3,
+          "type": "action",
+          "description": "Carregar ou trocar bateria e recomeçar do início."
+        },
+        {
+          "id": 4,
+          "type": "action",
+          "description": "Trocar fio vermelho da bateria e recomeçar do início."
+        },
+        {
+          "id": 5,
+          "type": "action",
+          "description": "Checar se está no modo teste."
+        },
+        {
+          "id": 6,
+          "type": "action",
+          "description": "Trocar placa e recomeçar do início."
+        },
+        {
+          "id": 7,
+          "type": "action",
+          "description": "Trocar controlador e recomeçar do início."
+        },
+        {
+          "id": 8,
+          "type": "end",
+          "description": "Colocar no modo de operação"
         }
       ]
     },
@@ -256,7 +450,13 @@
           }
         }
       ],
-      "actions": []
+      "actions": [
+        {
+          "id": 5,
+          "type": "action",
+          "description": "Trocar controlador e recomeçar do início."
+        }
+      ]
     },
     {
       "id": 3,
@@ -504,37 +704,37 @@
       ],
       "actions": [
         {
-          "id": "A0",
+          "id": 0,
           "type": "action",
           "description": " Trocar fusível e recomeçar do início."
         },
         {
-          "id": "A1",
+          "id": 1,
           "type": "action",
           "description": " Carregar ou trocar bateria e recomeçar do início."
         },
         {
-          "id": "A2",
+          "id": 2,
           "type": "action",
           "description": " Trocar fio vermelho da bateria e recomeçar do início."
         },
         {
-          "id": "A3",
+          "id": 3,
           "type": "action",
           "description": "Trocar LED e recomeçar do início."
         },
         {
-          "id": "A4",
+          "id": 4,
           "type": "action",
           "description": " Trocar placa e recomeçar do início."
         },
         {
-          "id": "A5",
+          "id": 5,
           "type": "action",
           "description": "Trocar controlador e recomeçar do início."
         },
         {
-          "id": "T9",
+          "id": 9,
           "type": "end",
           "description": "Colocar no modo de operação"
         }
