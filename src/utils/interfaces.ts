@@ -35,7 +35,7 @@ export interface Step {
 }
 
 export interface Action {
-  id: string;
+  id: number;
   type: string;
   description: string;
 }
