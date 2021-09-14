@@ -3,7 +3,6 @@ import { View, Image, Text } from "react-native";
 
 import { PrimaryButton } from "../../components/PrimaryButton";
 
-import { GUIDE_ICON } from "../../utils/public_assets";
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';
 
@@ -21,7 +20,7 @@ function FinishedGuide() {
     <View style={styles.container}>
       <View style={styles.imageWrapper}>
         <Image
-          source={GUIDE_ICON[currentGuide.id]}
+          source={{ uri: `asset:/procedure/guide${currentGuide.id}.png` }}
           style={{
             width: '100%',
             height: '100%',
