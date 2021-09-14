@@ -15,12 +15,16 @@ function DetailedStep() {
   const navigation = useNavigation();
 
   function stepDecision(decisionType: "work" | "failure") {
+
     if (currentStep[decisionType].type === 'step') {
+
       setStep(currentStep[decisionType].jump);
       setLastStep(currentStep.id);
     }
 
     else if (currentStep[decisionType].type === 'action') {
+      console.log(currentStep[decisionType].jump);
+      console.log(currentStep.)
       setAction(currentStep[decisionType].jump);
       setModalVisible(true);
     }
@@ -54,7 +58,7 @@ function DetailedStep() {
         <Text style={styles.title}>{currentStep.description}</Text>
         <Image
           style={styles.image}
-          source={{uri: `asset:/procedure/${currentGuide.name}/step${currentStep.id}.png`}}
+          source={{ uri: `asset:/procedure/${currentGuide.name}/step${currentStep.id}.png` }}
           resizeMode="contain"
         />
         <View style={styles.questionCard}>
