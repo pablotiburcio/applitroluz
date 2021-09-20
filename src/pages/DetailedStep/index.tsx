@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import styles from './styles';
 
+import { View, Text, Image } from 'react-native';
 import { IconButton } from '../../components/IconButton';
 import { FailureModal } from '../../components/FailureModal';
 
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';
-
-import styles from './styles';
 
 function DetailedStep() {
   const { currentGuide, currentStep, previousStep, currentAction, setStep, setAction, setLastStep } = useGuide();
@@ -26,6 +25,7 @@ function DetailedStep() {
     }
 
     else {
+      setModalVisible(false);
       navigation.navigate("FinishedGuide");
     }
   }
@@ -42,21 +42,21 @@ function DetailedStep() {
   }
 
   function onCancel() {
+    setModalVisible(false);
     navigation.navigate("Ressons");
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.stepNumberContainer}>
-        <Text style={styles.stepNumberText}>{currentStep.id}</Text>
-      </View>
-      <View style={styles.cardDetailedStep}>
+      <View style={styles.card}>
         <Text style={styles.title}>{currentStep.description}</Text>
-        <Image
-          style={styles.image}
-          source={{uri: `asset:/procedure/${currentGuide.name}/step${currentStep.id}.png`}}
-          resizeMode="contain"
-        />
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={{ uri: `asset:/procedure/${currentGuide.name}/step${currentStep.id}.png` }}
+            resizeMode="contain"
+          />
+        </View>
         <View style={styles.questionCard}>
           <Text style={styles.questionText}>{currentStep.question}</Text>
         </View>

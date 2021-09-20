@@ -1,7 +1,8 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
-import { SmallCardButton } from '../../components/SmallCardButton';
 import styles from './styles';
+
+import { View, FlatList, Text } from 'react-native';
+import { SmallCardButton } from '../../components/SmallCardButton';
 
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';
@@ -17,18 +18,19 @@ function SelectGuide() {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={procedures}
-        numColumns={2}
-        contentContainerStyle={styles.containerList}
-        renderItem={({ item, index }) =>
-          <SmallCardButton
-            idImage={index}
-            title={item.title}
-            onPress={() => setGuideAndChangeScreen(index)}
-          />
-        }
-      />
+      <View style={styles.card}>
+        <FlatList
+          data={procedures}
+          numColumns={2}
+          renderItem={({ item, index }) => 
+            <SmallCardButton
+              idImage={index}
+              title={item.title}
+              onPress={() => setGuideAndChangeScreen(index)}
+            />
+          }
+        />
+      </View>
     </View>
   );
 }

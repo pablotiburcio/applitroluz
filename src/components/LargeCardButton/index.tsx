@@ -1,9 +1,9 @@
 import React from 'react';
+import { styles } from './styles';
+
 import { View, Text } from 'react-native';
 import { RectButtonProps, RectButton } from 'react-native-gesture-handler';
-
 import { Entypo } from '@expo/vector-icons';
-import { styles } from './styles';
 
 interface Props extends RectButtonProps {
   id: string,

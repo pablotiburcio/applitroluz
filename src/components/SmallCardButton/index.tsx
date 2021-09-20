@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image, Text } from 'react-native';
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-
 import styles from './styles';
+
+import { View, Image, Text } from 'react-native';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 interface Props extends RectButtonProps {
   idImage: number,
@@ -15,11 +15,13 @@ export const SmallCardButton = ({ idImage, title, onPress }: Props) => {
       onPress={onPress}
       style={styles.container}
     >
-      <Image
-        source={{uri: `asset:/procedure/guide${idImage}.png`}}
-        style={styles.image}
-      />
-      <Text style={styles.textButton}>{title}</Text>
+      <View style={styles.imageContainer}>
+        <Image
+          source={{uri: `asset:/procedure/guide${idImage}.png`}}
+          style={styles.image}
+        />
+      </View>
+      <Text style={styles.title}>{title}</Text>
     </RectButton>
   );
 };

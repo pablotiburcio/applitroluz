@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     paddingTop: 24,
     paddingHorizontal: 24,
@@ -27,12 +27,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 2,
     borderRadius: 20,
     elevation: 2,
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
   },
 });
+
+export default styles;

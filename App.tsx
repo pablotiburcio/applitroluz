@@ -6,18 +6,20 @@ import AppLoading from 'expo-app-loading';
 import { Routes } from './src/routes';
 import {
   useFonts,
+  Nunito_800ExtraBold,
   Nunito_700Bold,
+  Nunito_600SemiBold,
   Nunito_400Regular,
-  Nunito_600SemiBold
 } from '@expo-google-fonts/nunito';
 import { GuideProvider } from './src/contexts/guide';
 
 export default function App() {
 
   const [fontsLoaded] = useFonts({
+    Nunito_800ExtraBold,
     Nunito_700Bold,
+    Nunito_600SemiBold,
     Nunito_400Regular,
-    Nunito_600SemiBold
   });
 
   if (!fontsLoaded) {
@@ -26,6 +28,10 @@ export default function App() {
 
   return (
     <GuideProvider>
+      <StatusBar
+        animated={true}
+        backgroundColor='#2179cc'
+      />
       <Routes />
     </GuideProvider>
 
