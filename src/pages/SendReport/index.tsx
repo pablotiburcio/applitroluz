@@ -19,7 +19,7 @@ export function SendReport() {
   const [isWorked, setIsWorked] = useState("Não");
   const [code, setCode] = useState("");
   const [reasonsMessage, setReasonsMessage] = useState("");
-  const [reasons, setReasons] = useState([])
+  const [reasons, setReasons] = useState([] as string[]);
 
   const { currentGuide } = useGuide();
 
