@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  safeView: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: "center",
@@ -116,5 +119,12 @@ export const styles = StyleSheet.create({
 
   },
 
+  footer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    maxWidth: '90%'
+  }
 
 });

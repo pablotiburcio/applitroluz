@@ -1,18 +1,19 @@
 import React, { createContext, useContext, useState } from 'react';
+import { checkboxItem } from '../pages/DifficultiesFound';
 
 interface ReasonsContextData {
-    reasons: string[],
-    addReasons: (reason: string) => void,
+    reasons: checkboxItem[],
+    addReasons: (reasons: checkboxItem[]) => void,
     removeReasons: (index: number) => void,
 }
 
 const ReasonsContext = createContext<ReasonsContextData>({} as ReasonsContextData);
 
 const ReasonsProvider: React.FC = ({ children }) => {
-    const [reasons, setReasons] = useState([] as string[]);
+    const [reasons, setReasons] = useState([] as checkboxItem[]);
 
-    function addReasons(reason: string) {
-        reasons.push(reason);
+    function addReasons(reasons: checkboxItem[]) {
+        setReasons(reasons.map((index) => { return index }));
     }
 
     function removeReasons(index: number) {
@@ -39,4 +40,5 @@ function useReasons() {
 }
 export {
     useReasons,
+    ReasonsProvider
 }

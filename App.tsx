@@ -12,6 +12,7 @@ import {
   Nunito_400Regular,
 } from '@expo-google-fonts/nunito';
 import { GuideProvider } from './src/contexts/guide';
+import { ReasonsProvider } from './src/contexts/reasons';
 
 export default function App() {
 
@@ -28,11 +29,13 @@ export default function App() {
 
   return (
     <GuideProvider>
-      <StatusBar
-        animated={true}
-        backgroundColor='#2179cc'
-      />
-      <Routes />
+      <ReasonsProvider>
+        <StatusBar
+          animated={true}
+          backgroundColor='#2179cc'
+        />
+        <Routes />
+      </ReasonsProvider>
     </GuideProvider>
 
   );

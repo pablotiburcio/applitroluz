@@ -1300,6 +1300,11 @@
     lodash.pick "^4.4.0"
     lodash.template "^4.5.0"
 
+"@freakycoder/react-native-bounceable@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@freakycoder/react-native-bounceable/-/react-native-bounceable-0.2.5.tgz#ad61bdafbf68465e9c2145e99c09b500ae091f0e"
+  integrity sha512-J8WBOYxbm/um7SqXYneduZ08T5Kin9z+ixsS3wOLtpeNvKscuqmDEgsgefTYydeSIoI5dOfWmklnRRgu5i/8nA==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@hapi/address/-/address-2.1.4.tgz"
@@ -1419,11 +1424,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-<<<<<<< HEAD
-"@react-native-community/checkbox@^0.5.1":
-=======
-"@react-native-community/checkbox@^0.5.8":
->>>>>>> send-report
+"@react-native-community/checkbox@^0.5.1", "@react-native-community/checkbox@^0.5.8":
   version "0.5.8"
   resolved "https://registry.yarnpkg.com/@react-native-community/checkbox/-/checkbox-0.5.8.tgz#a1b50635fd76a07fb53eb4a98120347cb6e75da4"
   integrity sha512-2ppw40sSqBKSPz75l8rDCvpcvQb/78MtvB5BDtovsJE1kXoUJP4eVLuyLo+LfYdSK9qLD4Llt4bIulr1SI9UIQ==
@@ -5236,6 +5237,11 @@ react-native-animatable@1.3.3:
   integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
   dependencies:
     prop-types "^15.7.2"
+
+react-native-checkbox-card@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-checkbox-card/-/react-native-checkbox-card-0.1.0.tgz#8cc96f29d0b76e69b029066d626024e313e89f27"
+  integrity sha512-h1gDlWpLP+vL2ywKr2de3JY+GpkuWdpda7r9mjVvdFmo5UDZTTs9p8A7Z7lP85qNPGgJh2QKUArGqGTtUNAPxQ==
 
 react-native-gesture-handler@~1.10.2:
   version "1.10.3"

@@ -7,21 +7,25 @@ import {
   TextInput,
   Linking,
   SafeAreaView,
-  ScrollView
+  ScrollView,
+  FlatList
 } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 
 import cred from '../../credentials.json';
 import { createIconSetFromFontello } from "@expo/vector-icons";
 import { useGuide } from "../../contexts/guide";
+import { useReasons } from "../../contexts/reasons";
+import { PrimaryButton } from "../../components/PrimaryButton";
 
 export function SendReport() {
+  const { reasons } = useReasons();
+
   const [isWorked, setIsWorked] = useState("Não");
   const [code, setCode] = useState("");
   const [reasonsMessage, setReasonsMessage] = useState("");
-  const [reasons, setReasons] = useState([] as string[]);
 
-  const { currentGuide } = useGuide();
+  const { currentGuide, done } = useGuide();
 
   useEffect(() => {
 
@@ -38,7 +42,6 @@ export function SendReport() {
     })
 
     setReasonsMessage(message)
-    setReasons(reasonsArray);
 
   }, [])
 
@@ -59,7 +62,7 @@ export function SendReport() {
       method: "post",
       headers: myHeaders,
       body: JSON.stringify([
-        [code, isWorked, "Troca do painel", reasonsMessage]])
+        [code, isWorked, done[0], reasonsMessage]])
     };
 
     await fetch(`https://v1.nocodeapi.com/lucasdev/google_sheets/${cred.pageID}?tabId=${cred.pageName}`, requestOptions)
@@ -72,8 +75,8 @@ export function SendReport() {
 
 
   return (
-    <SafeAreaView >
-      <ScrollView>
+    <SafeAreaView style={styles.safeView}>
+      <ScrollView style={styles.safeView} contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
           <View style={styles.header}>
             <Text style={styles.headerTitle}>Confirme as informações que serão enviadas para o Litro de Luz</Text>
@@ -81,11 +84,13 @@ export function SendReport() {
 
           <View style={styles.form}>
             <Text style={styles.labelForm}>Motivos do contato:</Text>
-            <View>
-              {reasons.map(item => {
-                return <Text style={styles.reason}>{item} </Text>
-              })}
-            </View>
+
+            <FlatList
+              data={reasons}
+              renderItem={({ item }) => <Text style={styles.reason}>{item.name} </Text>}
+              keyExtractor={item => String(item.id)}
+            />
+
 
             <View style={styles.wrapperView}>
               <View style={{ maxWidth: '50%', marginRight: 20 }}>
@@ -116,28 +121,30 @@ export function SendReport() {
 
               <Text>Manutenção Feita:</Text>
               <View style={styles.MaintenanceDone}>
-                <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
+                <FlatList
+                  data={done}
+                  renderItem={({ item }) => <Text style={styles.reason}>{item} </Text>}
+                  keyExtractor={item => item}
+                />
               </View>
 
-              <Text>Problemas:</Text>
+              {/* <Text>Problemas:</Text>
               <View style={styles.MaintenanceDone}>
                 <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
-              </View>
+              </View> */}
 
             </View>
           </View>
 
-
-
-
-          <TouchableOpacity
-            style={styles.button}
-            onPress={postData}>
-            <Text style={{ color: "#fff", textAlign: "center", margin: 5, fontSize: 16 }} >Entrar em contato com o voluntário pelo Whatsapp</Text>
-          </TouchableOpacity>
-
-
+          <View style={styles.footer}>
+            <PrimaryButton
+              title='Entrar em contato com o voluntário pelo Whatsapp'
+              color='#2688E8'
+              onPress={postData}
+            />
+          </View>
         </View>
+
       </ScrollView>
     </SafeAreaView >
 

@@ -1,6 +1,7 @@
 interface GuideContextData {
   procedures: Guide[];
   currentGuide: Guide;
+  done: string[];
   currentStep: Step;
   currentAction: Action;
   previousStep: number[];
