@@ -72,75 +72,81 @@ export function SendReport() {
 
 
   return (
-    <SafeAreaView  >
-      <ScrollView >
+    <SafeAreaView >
+      <ScrollView>
         <View style={styles.container}>
-
-          <View style={{ alignItems: "center" }}>
-            <Text style={{ fontWeight: "bold", fontSize: 20, textAlign: "center", width: 311 }}>Entre em contato com um dos voluntários da Litro</Text>
-            <Text style={{ color: "#505050", margin: 4, fontSize: 16, textAlign: "center", width: 311 }}>Preencha as informações abaixo
-              em seguida te direcionaremos para um dos voluntários.</Text>
-
+          <View style={styles.header}>
+            <Text style={styles.headerTitle}>Confirme as informações que serão enviadas para o Litro de Luz</Text>
           </View>
 
+          <View style={styles.form}>
+            <Text style={styles.labelForm}>Motivos do contato:</Text>
+            <View>
+              {reasons.map(item => {
+                return <Text style={styles.reason}>{item} </Text>
+              })}
+            </View>
 
-          <View >
-            <Text style={{ fontWeight: "bold" }}>Motivo do contato:</Text>
-            <View style={styles.RessonsContainer}>
-              <Text>{reasonsMessage}</Text>
+            <View style={styles.wrapperView}>
+              <View style={{ maxWidth: '50%', marginRight: 20 }}>
+                <Text style={styles.labelForm}>Código da Solução: </Text>
+                <TextInput
+                  style={styles.textInput}
+                  onChangeText={setCode}
+                  placeholder="Código"
+                  value={code}
+                />
+              </View>
+              <View style={{ maxWidth: '50%' }}>
+                <Text style={styles.labelForm}>Está funcionando?</Text>
+                <View style={styles.pickerBox}>
+                  <Picker
+                    selectedValue={isWorked}
+
+                    onValueChange={(itemLabel, itemIndex) => setIsWorked(itemLabel)}
+                  >
+                    <Picker.Item label="Sim" value="Sim" />
+                    <Picker.Item label="Não" value="Não" />
+                  </Picker>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.ViewPickerContainer}>
+
+
+
+
+            </View>
+
+            <View style={styles.MaintenanceDoneContainer}>
+
+              <Text>Manutenção Feita:</Text>
+              <View style={styles.MaintenanceDone}>
+                <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
+              </View>
+
+              <Text>Problemas:</Text>
+              <View style={styles.MaintenanceDone}>
+                <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
+              </View>
+
             </View>
           </View>
 
 
-          <View style={styles.TextViewPickerContainer}>
-            <Text style={styles.TextViewPicker}>Código da Solução: </Text>
-            <Text style={styles.TextViewPicker}>Está funcinando ? </Text>
-          </View>
 
-          <View style={styles.ViewPickerContainer}>
-            <TextInput
-              style={styles.ViewPicker}
-              onChangeText={setCode}
-              multiline
-              placeholder="code"
-              value={code}
-            />
 
-            <Picker
-              style={styles.ViewPicker}
-              selectedValue={isWorked}
-              onValueChange={(itemLabel, itemIndex) => setIsWorked(itemLabel)}>
-              <Picker.Item label="Sim" value="Sim" />
-              <Picker.Item label="Não" value="Não" />
-            </Picker>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={postData}>
+            <Text style={{ color: "#fff", textAlign: "center", margin: 5, fontSize: 16 }} >Entrar em contato com o voluntário pelo Whatsapp</Text>
+          </TouchableOpacity>
 
-          </View>
-          {/*------------------------ Manutenção feita-----------------------------*/}
-          <View style={styles.MaintenanceDoneContainer}>
 
-            <Text>Manutenção Feita:</Text>
-            <View style={styles.MaintenanceDone}>
-              <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
-            </View>
-
-            <Text>Problemas:</Text>
-            <View style={styles.MaintenanceDone}>
-              <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
-            </View>
-
-          </View>
-
-          <View >
-            <TouchableOpacity
-              style={styles.button}
-              onPress={postData}>
-              <Text style={{ color: "#fff", textAlign: "center", margin: 5, fontSize: 16 }} >Entrar em contato com o voluntário pelo Whatsapp</Text>
-            </TouchableOpacity>
-
-          </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaView >
 
 
   );

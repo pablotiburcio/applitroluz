@@ -46,7 +46,14 @@ export function StackRoutes() {
       <Screen
         name="DetailedStep"
         component={DetailedStep}
-        options={{ title: '', headerStyle: { backgroundColor: '#FFFFFF', elevation: 0 }, headerTintColor: '#54ABFF' }}
+        options={{
+          title: '',
+          headerStyle: {
+            backgroundColor: '#FFFFFF',
+            elevation: 0
+          },
+          headerTintColor: '#54ABFF'
+        }}
       />
       <Screen
         name="FinishedGuide"
@@ -61,6 +68,14 @@ export function StackRoutes() {
       <Screen
         name="SendReport"
         component={SendReport}
+        options={{
+          title: '',
+          headerStyle: {
+            backgroundColor: '#54ABFF',
+            elevation: 0
+          },
+          headerTintColor: '#FFFFFF'
+        }}
       />
     </Navigator>
   );
