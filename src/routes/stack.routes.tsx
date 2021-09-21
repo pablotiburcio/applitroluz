@@ -7,7 +7,7 @@ import DetailedStep from '../pages/DetailedStep';
 import FinishedGuide from '../pages/FinishedGuide';
 
 import { useGuide } from '../contexts/guide';
-import { Ressons } from '../pages/Ressons';
+import DifficultiesFound  from '../pages/DifficultiesFound';
 import { Form } from '../pages/Form'
 import { StepNumberText } from '../components/StepNumberText';
 
@@ -71,8 +71,9 @@ export function StackRoutes() {
         options={{ headerShown: false }}
       />
       <Screen
-        name="Ressons"
-        component={Ressons}
+        name="DifficultiesFound"
+        component={DifficultiesFound}
+        options={{ title: 'Dificuldades Encontradas' }}
       />
       <Screen
         name="Form"

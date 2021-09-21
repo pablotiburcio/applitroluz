@@ -43,7 +43,7 @@ function DetailedStep() {
 
   function onCancel() {
     setModalVisible(false);
-    navigation.navigate("Ressons");
+    navigation.navigate("DifficultiesFound");
   }
 
   return (

@@ -4,7 +4,8 @@ import { View, Text, TouchableOpacity, TouchableOpacityProps } from 'react-nativ
 
 interface Props extends TouchableOpacityProps {
   title: string,
-  color: string
+  color: string,
+  onPress(): void;
 }
 
 export const PrimaryButton = ({ title, color, onPress }: Props) => {
