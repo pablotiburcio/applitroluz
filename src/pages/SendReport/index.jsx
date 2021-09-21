@@ -15,7 +15,7 @@ import cred from '../../credentials.json';
 import { createIconSetFromFontello } from "@expo/vector-icons";
 import { useGuide } from "../../contexts/guide";
 
-const Form = ({ route }) => {
+export function SendReport() {
   const [isWorked, setIsWorked] = useState("Não");
   const [code, setCode] = useState("");
   const [reasonsMessage, setReasonsMessage] = useState("");
@@ -109,7 +109,7 @@ const Form = ({ route }) => {
             <Picker
               style={styles.ViewPicker}
               selectedValue={isWorked}
-              onValueChange={(itemLabel, itemIndex) => setIsWorked(itemValue)}>
+              onValueChange={(itemLabel, itemIndex) => setIsWorked(itemLabel)}>
               <Picker.Item label="Sim" value="Sim" />
               <Picker.Item label="Não" value="Não" />
             </Picker>
@@ -144,10 +144,4 @@ const Form = ({ route }) => {
 
 
   );
-};
-
-
-
-export {
-  Form
 };

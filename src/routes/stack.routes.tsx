@@ -8,7 +8,7 @@ import FinishedGuide from '../pages/FinishedGuide';
 
 import { useGuide } from '../contexts/guide';
 import { Ressons } from '../pages/Ressons';
-import { Form } from '../pages/Form'
+import { SendReport } from '../pages/SendReport';
 
 
 
@@ -59,8 +59,8 @@ export function StackRoutes() {
       />
 
       <Screen
-        name="Form"
-        component={Form}
+        name="SendReport"
+        component={SendReport}
       />
     </Navigator>
   );

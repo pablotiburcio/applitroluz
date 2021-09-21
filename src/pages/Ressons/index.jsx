@@ -16,48 +16,48 @@ const Ressons = () => {
     const IsPassValue = () => {
 
         if (isNotKnew === true) {
-            navigation.navigate('Form', {
+            navigation.navigate('SendReport', {
                 isNotKnew: "Não soube",
                 isothers: text
             })
         } else if (isNotKnew === true && isNotHaveMaterial === true && isNotHaveToll === false) {
-            navigation.navigate('Form', {
+            navigation.navigate('SendReport', {
                 isNotKnew: "Não soube",
                 isNotHaveMaterial: "Não tenho matérial",
                 isothers: text
             })
         } else if (isNotKnew === true && isNotHaveMaterial === true && isNotHaveToll === true) {
-            navigation.navigate('Form', {
+            navigation.navigate('SendReport', {
                 isNotKnew: "Não soube",
                 isNotHaveMaterial: "Não tenho matérial",
                 isNotHaveToll: "Não tenho ferramentas",
                 isothers: text
             })
         } else if (isNotKnew === false && isNotHaveMaterial === true && isNotHaveToll === false) {
-            navigation.navigate('Form', {
+            navigation.navigate('SendReport', {
                 isNotHaveMaterial: "Não tenho matérial",
                 isothers: text
             })
         } else if (isNotKnew === false && isNotHaveMaterial === true && isNotHaveToll === true) {
-            navigation.navigate('Form', {
+            navigation.navigate('SendReport', {
                 isNotHaveMaterial: "Não tenho matérial",
                 isNotHaveToll: "Não tenho ferramentas",
                 isothers: text
             })
         } else if (isNotKnew === false && isNotHaveMaterial === false && isNotHaveToll === true) {
-            navigation.navigate('Form', {
+            navigation.navigate('SendReport', {
                 isNotHaveToll: "Não tenho ferramentas",
                 isothers: text
             })
         } else if (isNotKnew === true && isNotHaveMaterial === false && isNotHaveToll === true) {
-            navigation.navigate('Form', {
+            navigation.navigate('SendReport', {
                 isNotKnew: "Não soube",
                 isNotHaveToll: "Não tenho ferramentas",
                 isothers: text
             })
         } else if (isNotKnew === false && isNotHaveMaterial === false && isNotHaveToll === false) {
             if (text != null) {
-                navigation.navigate('Form', { isothers: text })
+                navigation.navigate('SendReport', { isothers: text })
             } else {
                 alert("Por Favor Informe qual o problema.")
             }
