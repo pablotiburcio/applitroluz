@@ -43,6 +43,8 @@ export function SendReport() {
 
     setReasonsMessage(message)
 
+    console.log(done);
+
   }, [])
 
   function sendToWhatsapp() {
@@ -62,7 +64,7 @@ export function SendReport() {
       method: "post",
       headers: myHeaders,
       body: JSON.stringify([
-        [code, isWorked, done[0], reasonsMessage]])
+        [code, isWorked, done.toString, reasonsMessage]])
     };
 
     await fetch(`https://v1.nocodeapi.com/lucasdev/google_sheets/${cred.pageID}?tabId=${cred.pageName}`, requestOptions)
@@ -123,8 +125,8 @@ export function SendReport() {
               <View style={styles.MaintenanceDone}>
                 <FlatList
                   data={done}
-                  renderItem={({ item }) => <Text style={styles.reason}>{item} </Text>}
-                  keyExtractor={item => item}
+                  renderItem={({ item }) => <Text style={styles.reason}>{item.description} </Text>}
+                  keyExtractor={item => item.id.toString()}
                 />
               </View>
 

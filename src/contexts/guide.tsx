@@ -2,6 +2,11 @@ import React, { createContext, useContext, useState } from 'react';
 import { GuideContextData, Guide, Step, Action } from '../utils/interfaces';
 import { procedures } from '../procedures.json'
 
+interface DoneProps {
+  id: number,
+  description: string
+}
+
 const GuideContext = createContext<GuideContextData>({} as GuideContextData);
 
 const GuideProvider: React.FC = ({ children }) => {
@@ -11,30 +16,37 @@ const GuideProvider: React.FC = ({ children }) => {
   const [previousStep, setPreviousStep] = useState([] as number[]);
   const [isProblemSolved, setIsProblemSolved] = useState(false);
 
-  const [done, setDone] = useState([] as string[]);
+  const [done] = useState<DoneProps[]>([]);
 
   function setGuide(guideId: number) {
     setCurrentGuide(procedures[guideId]);
   }
 
+  function addDone(id: number) {
+    const newStepDone = {
+      id: currentGuide.steps[id].id,
+      description: currentGuide.steps[id].description
+    }
+
+    if (!(done.indexOf(newStepDone) != -1)) {
+      done.push(newStepDone);
+    };
+
+  }
+
   function setStep(stepId: number) {
     setCurrentStep(currentGuide.steps[stepId]);
-
-    setDone((oldValue) => {
-      oldValue.push(currentStep.description)
-      return oldValue
-    })
+    addDone(stepId);
   }
 
   function setAction(actionId: number) {
     setCurrentAction(currentGuide.actions[actionId]);
-    setDone((oldValue) => {
-      oldValue.push(currentStep.description)
-      return oldValue
-    })
+    addDone(actionId);
+
   }
 
   function setLastStep(stepId: number) {
+
     setPreviousStep(stepId > -1 ? [...previousStep, stepId] : []);
   }
 
