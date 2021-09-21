@@ -16,7 +16,7 @@ const GuideProvider: React.FC = ({ children }) => {
   const [previousStep, setPreviousStep] = useState([] as number[]);
   const [isProblemSolved, setIsProblemSolved] = useState(false);
 
-  const [done] = useState<DoneProps[]>([]);
+  const [done, setDone] = useState<DoneProps[]>([]);
 
   function setGuide(guideId: number) {
     setCurrentGuide(procedures[guideId]);

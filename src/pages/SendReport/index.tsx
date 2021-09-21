@@ -43,8 +43,6 @@ export function SendReport() {
 
     setReasonsMessage(message)
 
-    console.log(done);
-
   }, [])
 
   function sendToWhatsapp() {
@@ -57,14 +55,20 @@ export function SendReport() {
   }
 
   async function postData() {
+    let list = done.map(({ description }) => {
+      return description
+    })
+
     var myHeaders = new Headers();
+
+
     myHeaders.append("Content-Type", "application/json");
 
     var requestOptions = {
       method: "post",
       headers: myHeaders,
       body: JSON.stringify([
-        [code, isWorked, done.toString, reasonsMessage]])
+        [code, isWorked, list.toString(), reasonsMessage]])
     };
 
     await fetch(`https://v1.nocodeapi.com/lucasdev/google_sheets/${cred.pageID}?tabId=${cred.pageName}`, requestOptions)
