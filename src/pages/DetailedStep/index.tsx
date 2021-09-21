@@ -24,7 +24,7 @@ function DetailedStep() {
 
     else if (currentStep[decisionType].type === 'action') {
       console.log(currentStep[decisionType].jump);
-      console.log(currentStep.)
+
       setAction(currentStep[decisionType].jump);
       setModalVisible(true);
     }

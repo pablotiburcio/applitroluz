@@ -12,6 +12,7 @@ import { Form } from '../pages/Form'
 
 
 
+
 const { Navigator, Screen } = createStackNavigator();
 
 export function StackRoutes() {
@@ -45,7 +46,7 @@ export function StackRoutes() {
       <Screen
         name="DetailedStep"
         component={DetailedStep}
-        options={{ title: '', headerStyle:{backgroundColor: '#FFFFFF', elevation: 0}, headerTintColor: '#54ABFF' }}
+        options={{ title: '', headerStyle: { backgroundColor: '#FFFFFF', elevation: 0 }, headerTintColor: '#54ABFF' }}
       />
       <Screen
         name="FinishedGuide"
@@ -56,6 +57,7 @@ export function StackRoutes() {
         name="Ressons"
         component={Ressons}
       />
+
       <Screen
         name="Form"
         component={Form}
