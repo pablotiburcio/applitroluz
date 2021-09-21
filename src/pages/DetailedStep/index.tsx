@@ -16,11 +16,14 @@ function DetailedStep() {
   function stepDecision(decisionType: "work" | "failure") {
 
     if (currentStep[decisionType].type === 'step') {
+
       setStep(currentStep[decisionType].jump);
       setLastStep(currentStep.id);
     }
 
     else if (currentStep[decisionType].type === 'action') {
+      console.log(currentStep[decisionType].jump);
+
       setAction(currentStep[decisionType].jump);
       setModalVisible(true);
     }

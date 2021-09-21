@@ -7,9 +7,12 @@ import DetailedStep from '../pages/DetailedStep';
 import FinishedGuide from '../pages/FinishedGuide';
 
 import { useGuide } from '../contexts/guide';
-import DifficultiesFound  from '../pages/DifficultiesFound';
-import { Form } from '../pages/Form'
+import DifficultiesFound from '../pages/DifficultiesFound';
 import { StepNumberText } from '../components/StepNumberText';
+import { SendReport } from '../pages/SendReport';
+
+
+
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -35,16 +38,16 @@ export function StackRoutes() {
       <Screen
         name='SelectGuide'
         component={SelectGuide}
-        options={{ 
-          title: 'Procedimentos de Manutenção', 
+        options={{
+          title: 'Procedimentos de Manutenção',
           headerStyle: {
             height: 70,
             backgroundColor: '#54ABFF',
             elevation: 0
           },
           headerTitleStyle: {
-            fontFamily: 'Nunito_800ExtraBold', 
-            paddingTop: 10, 
+            fontFamily: 'Nunito_800ExtraBold',
+            paddingTop: 10,
           },
         }}
       />
@@ -56,14 +59,15 @@ export function StackRoutes() {
       <Screen
         name="DetailedStep"
         component={DetailedStep}
-        options={{ 
-          title: '', 
+        options={{
+          title: '',
           headerStyle: {
             height: 70,
             backgroundColor: '#54ABFF',
             elevation: 0
           },
-          headerRight: () =>  <StepNumberText stepNumber={currentStep.id} />}}
+          headerRight: () => <StepNumberText stepNumber={currentStep.id} />
+        }}
       />
       <Screen
         name="FinishedGuide"
@@ -75,9 +79,18 @@ export function StackRoutes() {
         component={DifficultiesFound}
         options={{ title: 'Dificuldades Encontradas' }}
       />
+
       <Screen
-        name="Form"
-        component={Form}
+        name="SendReport"
+        component={SendReport}
+        options={{
+          title: '',
+          headerStyle: {
+            backgroundColor: '#54ABFF',
+            elevation: 0
+          },
+          headerTintColor: '#FFFFFF'
+        }}
       />
     </Navigator>
   );
