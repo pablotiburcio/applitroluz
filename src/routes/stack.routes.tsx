@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, CardStyleInterpolators, TransitionSpecs } from '@react-navigation/stack';
 
 import SelectGuide from '../pages/SelectGuide';
 import SelectStep from '../pages/SelectStep';
@@ -7,35 +7,46 @@ import DetailedStep from '../pages/DetailedStep';
 import FinishedGuide from '../pages/FinishedGuide';
 
 import { useGuide } from '../contexts/guide';
-import { Ressons } from '../pages/Ressons';
+import DifficultiesFound  from '../pages/DifficultiesFound';
 import { Form } from '../pages/Form'
-
-
+import { StepNumberText } from '../components/StepNumberText';
 
 const { Navigator, Screen } = createStackNavigator();
 
 export function StackRoutes() {
-  const { currentGuide } = useGuide();
+  const { currentGuide, currentStep } = useGuide();
 
   return (
     <Navigator
       headerMode='screen'
       screenOptions={{
+        cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+        headerTintColor: '#FFFFFF',
+        headerTitleAlign: 'center',
         headerStyle: {
           backgroundColor: '#54ABFF',
         },
-        headerTintColor: '#FFFFFF',
         headerTitleStyle: {
-          fontFamily: 'Nunito_600SemiBold',
-          fontSize: 18,
+          fontFamily: 'Nunito_800ExtraBold',
+          fontSize: 20,
         },
-        headerTitleAlign: 'center',
       }}
     >
       <Screen
         name='SelectGuide'
         component={SelectGuide}
-        options={{ title: 'Procedimentos de manutenção' }}
+        options={{ 
+          title: 'Procedimentos de Manutenção', 
+          headerStyle: {
+            height: 70,
+            backgroundColor: '#54ABFF',
+            elevation: 0
+          },
+          headerTitleStyle: {
+            fontFamily: 'Nunito_800ExtraBold', 
+            paddingTop: 10, 
+          },
+        }}
       />
       <Screen
         name='SelectStep'
@@ -45,7 +56,14 @@ export function StackRoutes() {
       <Screen
         name="DetailedStep"
         component={DetailedStep}
-        options={{ title: '', headerStyle:{backgroundColor: '#FFFFFF', elevation: 0}, headerTintColor: '#54ABFF' }}
+        options={{ 
+          title: '', 
+          headerStyle: {
+            height: 70,
+            backgroundColor: '#54ABFF',
+            elevation: 0
+          },
+          headerRight: () =>  <StepNumberText stepNumber={currentStep.id} />}}
       />
       <Screen
         name="FinishedGuide"
@@ -53,8 +71,9 @@ export function StackRoutes() {
         options={{ headerShown: false }}
       />
       <Screen
-        name="Ressons"
-        component={Ressons}
+        name="DifficultiesFound"
+        component={DifficultiesFound}
+        options={{ title: 'Dificuldades Encontradas' }}
       />
       <Screen
         name="Form"

@@ -1,10 +1,9 @@
 import React from 'react';
+import styles from './styles';
+
 import { Text } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-
 import { MaterialIcons, } from '@expo/vector-icons';
-
-import styles from './styles';
 
 interface Props extends RectButtonProps {
   title: string,

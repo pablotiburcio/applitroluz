@@ -1,4 +1,4 @@
-export interface GuideContextData {
+interface GuideContextData {
   procedures: Guide[];
   currentGuide: Guide;
   currentStep: Step;
@@ -11,7 +11,7 @@ export interface GuideContextData {
   setLastStep(previousStepId: number): void
 }
 
-export interface Guide {
+interface Guide {
   id: number;
   name: string;
   title: string;
@@ -19,7 +19,7 @@ export interface Guide {
   actions: Action[];
 }
 
-export interface Step {
+interface Step {
   id: number;
   type: string;
   description: string;
@@ -34,8 +34,10 @@ export interface Step {
   }
 }
 
-export interface Action {
+interface Action {
   id: number;
   type: string;
   description: string;
 }
+
+export { GuideContextData, Guide, Step, Action };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styles } from './styles';
-import {Picker, View, Text, TouchableOpacity, TextInput,Linking,SafeAreaView,ScrollView} from "react-native";
 
+import {Picker, View, Text, TouchableOpacity, TextInput,Linking,SafeAreaView,ScrollView} from "react-native";
 
 const Form  = ({route}) => {
   const [selectedValue, setSelectedValue] = useState("Sim");

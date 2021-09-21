@@ -1,9 +1,9 @@
 import React from 'react';
+import styles from './styles';
+
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { LongCardButton } from '../../components/LargeCardButton';
-
 import { Ionicons } from '@expo/vector-icons';
-import { styles } from './styles';
 
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';

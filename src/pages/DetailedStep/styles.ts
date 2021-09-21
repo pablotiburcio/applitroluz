@@ -2,66 +2,46 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#54ABFF',
     paddingHorizontal: 15,
+    paddingTop: 20,
+    paddingBottom: 30,
     flex: 1, 
     alignItems: 'center',
   },
-  stepNumberContainer: {
-    backgroundColor: '#0371DB',
-    minWidth: 45, 
-    paddingVertical:8, 
-    marginVertical: 20,
-    alignItems: 'center', 
-    borderRadius: 30,
-    elevation: 2,
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-  },
-  stepNumberText: {
-    color: '#FFFFFF',
-    fontFamily: 'Nunito_700Bold', 
-    fontSize: 20,  
-    opacity: 0.85
-  },
-  cardDetailedStep: {
-    backgroundColor: '#FFFFFF',
+  card: {
+    width: '96%',
+    backgroundColor: '#EFEFEF',
     alignItems: 'center',
-    paddingHorizontal: 15, 
-    paddingTop: 24,
-    paddingBottom: 30,
+    paddingVertical: 25,
     borderRadius: 15,
+    elevation: 4
   },
   title: {
     color: '#505050',
     fontSize: 20,
     fontFamily: 'Nunito_700Bold',
+    marginHorizontal: 30,
+  },
+  imageContainer: {
+    backgroundColor:"#FFFFFF",
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    marginTop: 30,
+    borderRadius: 10,
+    elevation: 1
   },
   image: {
     width: 300,
     height:200,
-    backgroundColor:"#FFFFFF",
-    marginTop: 30
   },
   questionCard: {
-    backgroundColor: '#F3F3F3',
-    marginVertical: 20,
-    paddingHorizontal: 32,
+    backgroundColor: '#F9F9F9',
+    marginTop: 30,
+    paddingHorizontal: 30,
     paddingVertical: 12,
     borderRadius: 10,
     elevation: 1,
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
   },
   questionText: {
     color: '#505050',
@@ -69,10 +49,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito_600SemiBold',
   },
   actionButtons: {
-    width: '100%',
+    width: '95%',
     flexDirection: 'row', 
     justifyContent: 'space-evenly',
-    marginTop: 35
+    marginTop: 30,
+    marginBottom: 10
   }
 });
 

@@ -31,6 +31,7 @@
     "react-native-screens": "~3.4.0",
     "react-native-unimodules": "~0.14.5",
     "react-native-web": "~0.13.12",
+    "rn-checkbox-list": "^1.0.0",
     "xlsx": "^0.17.1"
   },
   "devDependencies": {

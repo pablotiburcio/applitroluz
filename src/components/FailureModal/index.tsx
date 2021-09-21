@@ -1,11 +1,11 @@
 import React from 'react';
+import styles from './styles';
+
 import { Text, View } from 'react-native';
 import Modal from 'react-native-modal';
+
 import { PrimaryButton } from '../PrimaryButton';
-
 import { AntDesign } from '@expo/vector-icons';
-
-import styles from './styles';
 
 interface Props {
   isVisible: boolean,

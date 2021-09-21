@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Image, Text } from "react-native";
+import styles from './styles';
 
+import { View, Image, Text } from "react-native";
 import { PrimaryButton } from "../../components/PrimaryButton";
 
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';
-
-import styles from './styles';
 
 function FinishedGuide() {
   const { currentGuide } = useGuide();
