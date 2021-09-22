@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+
   },
 
   header: {
@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
   },
 
   form: {
+    flex: 1,
     width: "85%",
   },
 
@@ -49,25 +50,23 @@ export const styles = StyleSheet.create({
   },
 
   wrapperView: {
+    justifyContent: 'space-between',
     flexDirection: 'row',
     marginTop: 10
   },
 
   textInput: {
-    width: '100%',
-    maxWidth: '80%',
-
+    width: '70%',
     height: 42,
-
     marginRight: 15,
     borderWidth: 2,
 
     borderRadius: 8,
     borderColor: "#278CC5",
     backgroundColor: '#ECE7E7',
-    textAlign: "center",
+    textAlign: "left",
     justifyContent: "center",
-
+    padding: 10,
     color: '#505050',
     fontFamily: "Nunito_700Bold",
     fontSize: 16
@@ -105,8 +104,8 @@ export const styles = StyleSheet.create({
   },
 
   MaintenanceDoneContainer: {
-    marginTop: 10
-
+    marginTop: 10,
+    flex: 1,
   },
 
   //----------------------------------style do botão
@@ -125,7 +124,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
 
-    maxWidth: '90%'
+    maxWidth: '85%',
   }
 
 });

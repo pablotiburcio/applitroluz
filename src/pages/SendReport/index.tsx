@@ -96,7 +96,7 @@ export function SendReport() {
             />
 
             <View style={styles.wrapperView}>
-              <View style={{ maxWidth: '50%', marginRight: 20 }}>
+              <View style={{ width: '45%' }}>
                 <Text style={styles.labelForm}>Código da Solução: </Text>
                 <TextInput
                   style={styles.textInput}
@@ -105,7 +105,7 @@ export function SendReport() {
                   value={code}
                 />
               </View>
-              <View style={{ maxWidth: '50%' }}>
+              <View style={{ width: '45%' }}>
                 <Text style={styles.labelForm}>Está funcionando?</Text>
 
                 <SelectDropdown
@@ -131,22 +131,20 @@ export function SendReport() {
 
               </View>
             </View>
-          </View>
-          <View style={styles.MaintenanceDoneContainer}>
 
-            <Text>Manutenção Feita:</Text>
-            <View style={styles.MaintenanceDone}>
-              <FlatList
-                data={done}
-                renderItem={({ item }) => <Text style={styles.reason}>{item.description} </Text>}
-                keyExtractor={item => item.id.toString()}
-              />
+            <View style={styles.MaintenanceDoneContainer}>
+
+              <Text style={styles.labelForm}>Manutenção Feita:</Text>
+              <View style={styles.labelForm}>
+                <FlatList
+                  data={done}
+                  renderItem={({ item }) => <Text style={styles.reason}>{item.description} </Text>}
+                  keyExtractor={item => item.id.toString()}
+                />
+
+              </View>
             </View>
 
-            <Text>Problemas:</Text>
-            <View style={styles.MaintenanceDone}>
-              <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
-            </View>
           </View>
           <View style={styles.footer}>
             <PrimaryButton
@@ -155,6 +153,7 @@ export function SendReport() {
               onPress={postData}
             />
           </View>
+
         </View>
       </ScrollView>
     </SafeAreaView >

@@ -1554,6 +1554,18 @@
   resolved "https://registry.npmjs.org/@react-native-community/masked-view/-/masked-view-0.1.10.tgz"
   integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
 
+<<<<<<< HEAD
+=======
+"@react-native-picker/picker@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.1.0.tgz#1ef22d4e9b2e555d44b43453f51a46d8631f3182"
+  integrity sha512-iJ/QaDrBMBaW6cFuQyR3DXzcn2h7c5O7mGgmNLCBQHTTtLNBZR+Sxogy6YleFPeToNdysG5mTTkXqBmlWHMQqg==
+
+"@react-native-picker/picker@react-native-picker/picker":
+  version "2.1.0"
+  resolved "https://codeload.github.com/react-native-picker/picker/tar.gz/9712d4de1746878c527fe026d5c5346e90275f4c"
+
+>>>>>>> c87cc43bd110ceedcbcdf1ddbe36cd01cfbb26bf
 "@react-navigation/core@^5.15.3":
   version "5.15.3"
   resolved "https://registry.npmjs.org/@react-navigation/core/-/core-5.15.3.tgz"
