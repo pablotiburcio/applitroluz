@@ -8,9 +8,12 @@ import {
   Linking,
   SafeAreaView,
   ScrollView,
-  FlatList
+  FlatList,
+  VirtualizedList,
+  SectionList,
+  LogBox
 } from "react-native";
-import { Picker } from '@react-native-picker/picker';
+import RNPickerSelect from 'react-native-picker-select';
 
 import cred from '../../credentials.json';
 import { createIconSetFromFontello } from "@expo/vector-icons";
@@ -21,13 +24,15 @@ import { PrimaryButton } from "../../components/PrimaryButton";
 export function SendReport() {
   const { reasons } = useReasons();
 
-  const [isWorked, setIsWorked] = useState("Não");
+  const [isWorked, setIsWorked] = useState();
+
   const [code, setCode] = useState("");
-  const [reasonsMessage, setReasonsMessage] = useState("");
+  const [reasonsMessage, setReasonsMessage] = useState("Olá");
 
   const { currentGuide, done } = useGuide();
 
   useEffect(() => {
+    LogBox.ignoreLogs(['VirtualizedLists should never be nested inside plain ScrollViews with the same orientation - use another VirtualizedList-backed container instead.']);
 
     const routeParams = [
       "Não soube",
@@ -97,7 +102,6 @@ export function SendReport() {
               keyExtractor={item => String(item.id)}
             />
 
-
             <View style={styles.wrapperView}>
               <View style={{ maxWidth: '50%', marginRight: 20 }}>
                 <Text style={styles.labelForm}>Código da Solução: </Text>
@@ -111,37 +115,38 @@ export function SendReport() {
               <View style={{ maxWidth: '50%' }}>
                 <Text style={styles.labelForm}>Está funcionando?</Text>
                 <View style={styles.pickerBox}>
-                  <Picker
-                    selectedValue={isWorked}
-
-                    onValueChange={(itemLabel, itemIndex) => setIsWorked(itemLabel)}
-                  >
-                    <Picker.Item label="Sim" value="Sim" />
-                    <Picker.Item label="Não" value="Não" />
-                  </Picker>
+                  <RNPickerSelect
+                    placeholder={{
+                      label: 'Selecione uma opção',
+                      value: null,
+                      color: '#9EA0A4',
+                    }}
+                    onValueChange={(value) => { setIsWorked(value) }}
+                    items={[
+                      { label: 'Não', value: 'Não' },
+                      { label: 'Sim', value: 'Sim' },
+                    ]}
+                  />
                 </View>
               </View>
             </View>
+          </View>
+          <View style={styles.MaintenanceDoneContainer}>
 
-            <View style={styles.MaintenanceDoneContainer}>
+            <Text>Manutenção Feita:</Text>
+            <View style={styles.MaintenanceDone}>
+              <FlatList
+                data={done}
+                renderItem={({ item }) => <Text style={styles.reason}>{item.description} </Text>}
+                keyExtractor={item => item.id.toString()}
+              />
+            </View>
 
-              <Text>Manutenção Feita:</Text>
-              <View style={styles.MaintenanceDone}>
-                <FlatList
-                  data={done}
-                  renderItem={({ item }) => <Text style={styles.reason}>{item.description} </Text>}
-                  keyExtractor={item => item.id.toString()}
-                />
-              </View>
-
-              {/* <Text>Problemas:</Text>
-              <View style={styles.MaintenanceDone}>
-                <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
-              </View> */}
-
+            <Text>Problemas:</Text>
+            <View style={styles.MaintenanceDone}>
+              <Text style={{ padding: 10 }}>Trocas do painel, troca da bateria</Text>
             </View>
           </View>
-
           <View style={styles.footer}>
             <PrimaryButton
               title='Entrar em contato com o voluntário pelo Whatsapp'
@@ -150,10 +155,7 @@ export function SendReport() {
             />
           </View>
         </View>
-
       </ScrollView>
     </SafeAreaView >
-
-
   );
 };

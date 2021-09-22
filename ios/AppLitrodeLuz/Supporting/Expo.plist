@@ -12,5 +12,7 @@
     <string>42.0.0</string>
     <key>EXUpdatesURL</key>
     <string>https://exp.host/@nerd_lukas/applitrodeluz</string>
+    <key>EXUpdatesReleaseChannel</key>
+    <string>default</string>
   </dict>
 </plist>
