@@ -75,6 +75,7 @@ export const styles = StyleSheet.create({
 
   pickerBox: {
     backgroundColor: '#ECE7E7',
+    width: '100%',
     borderRadius: 8,
     borderColor: "#278CC5",
     borderWidth: 2,
@@ -82,13 +83,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  picker: {
+  rowStyle: {
+    backgroundColor: '#ECE7E7',
+  },
+  rowTextStyle: {
     color: '#505050',
     fontFamily: "Nunito_700Bold",
-    transform: [
-      { scaleX: 1.5 },
-      { scaleY: 1.5 },
-    ]
+    fontSize: 14,
   },
 
   MaintenanceDone: {

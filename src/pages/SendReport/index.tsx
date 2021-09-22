@@ -3,20 +3,18 @@ import { styles } from './styles';
 import {
   View,
   Text,
-  TouchableOpacity,
   TextInput,
   Linking,
   SafeAreaView,
   ScrollView,
   FlatList,
-  VirtualizedList,
-  SectionList,
-  LogBox
 } from "react-native";
-import RNPickerSelect from 'react-native-picker-select';
+// import RNPickerSelect from 'react-native-picker-select';
+
+import SelectDropdown from 'react-native-select-dropdown'
 
 import cred from '../../credentials.json';
-import { createIconSetFromFontello } from "@expo/vector-icons";
+import { createIconSetFromFontello, FontAwesome } from "@expo/vector-icons";
 import { useGuide } from "../../contexts/guide";
 import { useReasons } from "../../contexts/reasons";
 import { PrimaryButton } from "../../components/PrimaryButton";
@@ -32,17 +30,9 @@ export function SendReport() {
   const { currentGuide, done } = useGuide();
 
   useEffect(() => {
-    LogBox.ignoreLogs(['VirtualizedLists should never be nested inside plain ScrollViews with the same orientation - use another VirtualizedList-backed container instead.']);
-
-    const routeParams = [
-      "Não soube",
-      "Não tenho material",
-      "Não tenho ferramenta",
-      "Outros"
-    ];
     let message = ""
-    const reasonsArray = routeParams.map((item) => {
-      message = message + item + "\n";
+    const reasonsArray = reasons.map((item) => {
+      message = message + item.name + "\n";
       return item
     })
 
@@ -60,9 +50,10 @@ export function SendReport() {
   }
 
   async function postData() {
-    let list = done.map(({ description }) => {
-      return description
-    })
+    let stepsDone = ""
+    done.map(({ description }) => {
+      stepsDone = stepsDone + description + "\n";
+    });
 
     var myHeaders = new Headers();
 
@@ -73,7 +64,7 @@ export function SendReport() {
       method: "post",
       headers: myHeaders,
       body: JSON.stringify([
-        [code, isWorked, list.toString(), reasonsMessage]])
+        [code, isWorked, stepsDone, reasonsMessage]])
     };
 
     await fetch(`https://v1.nocodeapi.com/lucasdev/google_sheets/${cred.pageID}?tabId=${cred.pageName}`, requestOptions)
@@ -83,6 +74,8 @@ export function SendReport() {
 
     sendToWhatsapp();
   }
+
+  const countries = ["Sim", "Não"]
 
 
   return (
@@ -114,20 +107,28 @@ export function SendReport() {
               </View>
               <View style={{ maxWidth: '50%' }}>
                 <Text style={styles.labelForm}>Está funcionando?</Text>
-                <View style={styles.pickerBox}>
-                  <RNPickerSelect
-                    placeholder={{
-                      label: 'Selecione uma opção',
-                      value: null,
-                      color: '#9EA0A4',
-                    }}
-                    onValueChange={(value) => { setIsWorked(value) }}
-                    items={[
-                      { label: 'Não', value: 'Não' },
-                      { label: 'Sim', value: 'Sim' },
-                    ]}
-                  />
-                </View>
+
+                <SelectDropdown
+                  data={countries}
+                  onSelect={(selectedItem, index) => setIsWorked(selectedItem)}
+                  defaultButtonText={"Selecione"}
+                  buttonTextAfterSelection={(selectedItem, index) => {
+                    return selectedItem
+                  }}
+                  rowTextForSelection={(item, index) => {
+                    return item
+                  }}
+                  renderDropdownIcon={() => {
+                    return (
+                      <FontAwesome name="chevron-down" color={"#00539F"} size={16} />
+                    );
+                  }}
+                  buttonTextStyle={styles.rowTextStyle}
+                  buttonStyle={styles.pickerBox}
+                  rowStyle={styles.rowStyle}
+                  rowTextStyle={styles.rowTextStyle}
+                />
+
               </View>
             </View>
           </View>
