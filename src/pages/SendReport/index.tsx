@@ -99,7 +99,7 @@ export function SendReport() {
 
 
             <View style={styles.wrapperView}>
-              <View style={{ maxWidth: '50%', marginRight: 20 }}>
+              <View style={{ width: '45%'}}>
                 <Text style={styles.labelForm}>Código da Solução: </Text>
                 <TextInput
                   style={styles.textInput}
@@ -108,12 +108,12 @@ export function SendReport() {
                   value={code}
                 />
               </View>
-              <View style={{ maxWidth: '50%' }}>
+              <View style={{ width: '45%'}}>
                 <Text style={styles.labelForm}>Está funcionando?</Text>
                 <View style={styles.pickerBox}>
-                  <Picker
+                  <Picker 
                     selectedValue={isWorked}
-
+                    mode = 'dropdown'
                     onValueChange={(itemLabel, itemIndex) => setIsWorked(itemLabel)}
                   >
                     <Picker.Item label="Sim" value="Sim" />
@@ -125,8 +125,8 @@ export function SendReport() {
 
             <View style={styles.MaintenanceDoneContainer}>
 
-              <Text>Manutenção Feita:</Text>
-              <View style={styles.MaintenanceDone}>
+              <Text style={styles.labelForm}>Manutenção Feita:</Text>
+              <View style={styles.labelForm}>
                 <FlatList
                   data={done}
                   renderItem={({ item }) => <Text style={styles.reason}>{item.description} </Text>}
@@ -143,6 +143,7 @@ export function SendReport() {
           </View>
 
           <View style={styles.footer}>
+            
             <PrimaryButton
               title='Entrar em contato com o voluntário pelo Whatsapp'
               color='#2688E8'
