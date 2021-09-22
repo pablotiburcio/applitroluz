@@ -13,21 +13,19 @@ import {
   Nunito_400Regular,
 } from '@expo-google-fonts/nunito';
 import { GuideProvider } from './src/contexts/guide';
-import { ReasonsProvider } from './src/contexts/reasons';
-
-useEffect(() => {
-  async function getNewUpdates() {
-    const { isAvailable } = await Updates.checkForUpdateAsync();
-
-    if (isAvailable) {
-      await Updates.fetchUpdateAsync();
-      await Updates.reloadAsync();
-    }
-  }
-}, [])
+import { ReasonsProvider } from './src/contexts/reasons'
 
 export default function App() {
+  useEffect(() => {
+    async function getNewUpdates() {
+      const { isAvailable } = await Updates.checkForUpdateAsync();
 
+      if (isAvailable) {
+        await Updates.fetchUpdateAsync();
+        await Updates.reloadAsync();
+      }
+    }
+  }, [])
   const [fontsLoaded] = useFonts({
     Nunito_800ExtraBold,
     Nunito_700Bold,
