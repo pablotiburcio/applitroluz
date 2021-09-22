@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { StatusBar } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StatusBar, Text } from 'react-native';
 import { View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Updates from 'expo-updates';
@@ -16,6 +16,7 @@ import { GuideProvider } from './src/contexts/guide';
 import { ReasonsProvider } from './src/contexts/reasons'
 
 export default function App() {
+  const [update, setUpdate] = useState(false);
   useEffect(() => {
     async function getNewUpdates() {
       const { isAvailable } = await Updates.checkForUpdateAsync();
@@ -25,6 +26,10 @@ export default function App() {
         await Updates.reloadAsync();
       }
     }
+
+
+    getNewUpdates();
+    setUpdate(true);
   }, [])
   const [fontsLoaded] = useFonts({
     Nunito_800ExtraBold,
@@ -35,6 +40,18 @@ export default function App() {
 
   if (!fontsLoaded) {
     return <AppLoading />
+  }
+
+  if (!update) {
+    <View style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <Text>
+        Atualizando informações...
+      </Text>
+    </View>
   }
 
   return (
