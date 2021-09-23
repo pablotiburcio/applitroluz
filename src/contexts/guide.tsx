@@ -22,26 +22,38 @@ const GuideProvider: React.FC = ({ children }) => {
     setCurrentGuide(procedures[guideId]);
   }
 
-  function addDone(id: number) {
-    const newStepDone = {
-      id: currentGuide.steps[id].id,
-      description: currentGuide.steps[id].description
+  function addDone(id: number, type: "step" | "action") {
+    let newStepDone = {} as DoneProps;
+    if (type == "step") {
+      newStepDone = {
+        id: currentGuide.steps[id].id,
+        description: currentGuide.steps[id].description
+      }
+    } else {
+      newStepDone = {
+        id: currentGuide.actions[id].id,
+        description: currentGuide.actions[id].description
+      }
     }
 
-    if (!(done.indexOf(newStepDone) != -1)) {
-      done.push(newStepDone);
+    let newArray = done.map(item => item);
+    if (newArray.indexOf(newStepDone) === -1) {
+      newArray.push(newStepDone);
+      console.log(newArray);
+      setDone(newArray);
     };
+
 
   }
 
   function setStep(stepId: number) {
     setCurrentStep(currentGuide.steps[stepId]);
-    addDone(stepId);
+    addDone(stepId, "step");
   }
 
   function setAction(actionId: number) {
     setCurrentAction(currentGuide.actions[actionId]);
-    addDone(actionId);
+    addDone(actionId, "action");
 
   }
 
