@@ -12,12 +12,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#dfe4ea',
     padding: 12,
     flex: 1,
-    borderRadius: 30,  
+    borderRadius: 30,
     elevation: 4,
   },
   procedureList: {
     width: "100%",
   },
+  footer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 30,
+  }
 });
 
 export default styles;

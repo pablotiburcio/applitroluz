@@ -6,6 +6,7 @@ import { SmallCardButton } from '../../components/SmallCardButton';
 
 import { useGuide } from '../../contexts/guide';
 import { useNavigation } from '@react-navigation/native';
+import { FeedBackButton } from '../../components/FeedBackButton';
 
 function SelectGuide() {
   const { procedures, setGuide } = useGuide();
@@ -22,7 +23,7 @@ function SelectGuide() {
         <FlatList
           data={procedures}
           numColumns={2}
-          renderItem={({ item, index }) => 
+          renderItem={({ item, index }) =>
             <SmallCardButton
               idImage={index}
               title={item.title}
@@ -30,7 +31,11 @@ function SelectGuide() {
             />
           }
         />
+        <View style={styles.footer}>
+          <FeedBackButton />
+        </View>
       </View>
+
     </View>
   );
 }
