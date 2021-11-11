@@ -89,8 +89,7 @@ function DetailedStep() {
       </View>
       <FailureModal
         isVisible={isModalVisible}
-        title='Não Acendeu?'
-        description={currentAction.description}
+        title={currentAction.description}
         onOk={onOk}
         onCancel={onCancel}
       />

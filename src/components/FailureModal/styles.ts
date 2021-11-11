@@ -9,19 +9,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 15,
   },
-  modalIcon: {
-    backgroundColor: 'white',
-    marginRight: 6,  
-    borderRadius:55
-  },
   title: {
     color: '#505050',
-    fontFamily: 'Nunito_700Bold',
-    fontSize: 26
+    fontFamily: 'Nunito_600SemiBold',
+    fontSize: 26,
+    textAlign: 'center'
   },
   description: {
-    color: '#808080',
-    fontFamily: 'Nunito_700Bold',
+    marginTop: 14,
+    marginBottom: -10,
+    color: '#505050',
+    fontFamily: 'Nunito_400Regular',
     fontSize: 20,
     textAlign: 'center'
   }

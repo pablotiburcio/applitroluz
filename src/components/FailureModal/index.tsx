@@ -10,25 +10,23 @@ import { AntDesign } from '@expo/vector-icons';
 interface Props {
   isVisible: boolean,
   title: string,
-  description: string,
   onOk: () => void,
   onCancel: () => void
 }
 
-export const FailureModal = ({ isVisible, title, description, onOk, onCancel }: Props) => {
+export const FailureModal = ({ isVisible, title, onOk, onCancel }: Props) => {
   return (
     <Modal isVisible={isVisible}>
       <View style={styles.container}>
-        <AntDesign
-          name='closecircleo'
-          size={50}
-          color='red'
-          style={styles.modalIcon}
+        <AntDesign 
+          name="warning" 
+          size={50} 
+          color="#FAD271" 
         />
         <View style={{ height: 10 }} />
         <Text style={styles.title}>{title}</Text>
-        <View style={{ backgroundColor: '#FFB5B5', width: '100%', height: 1, marginVertical: 15 }} />
-        <Text style={styles.description}>{description}</Text>
+        <View style={{ backgroundColor: '#C4C4C4', width: '100%', height: 1, marginVertical: 15 }} />
+        <Text style={styles.description}>Conseguiu realizar esse passo?</Text>
         <View style={{ height: 25 }} />
         <PrimaryButton
           title='Consegui'

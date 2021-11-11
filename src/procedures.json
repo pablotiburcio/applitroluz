@@ -164,42 +164,42 @@
         {
           "id": 0,
           "type": "action",
-          "description": "Trocar fusível e recomeçar do início."
+          "description": "Troque o fusível"
         },
         {
           "id": 1,
           "type": "action",
-          "description": "Carregar ou trocar bateria e recomeçar do início."
+          "description": "Carregue ou troque a bateria"
         },
         {
           "id": 2,
           "type": "action",
-          "description": "Trocar Botão e recomeçar do início."
+          "description": "Troque o Botão"
         },
         {
           "id": 3,
           "type": "action",
-          "description": "Trocar fio vermelho da bateria e recomeçar do início."
+          "description": "Troque o fio vermelho da bateria"
         },
         {
           "id": 4,
           "type": "action",
-          "description": "Trocar LED e recomeçar do início."
+          "description": "Troque o LED"
         },
         {
           "id": 5,
           "type": "action",
-          "description": "Trocar plug ou placa e recomeçar do início."
+          "description": "Troque o plug ou placa"
         },
         {
           "id": 6,
           "type": "action",
-          "description": "Trocar fêmea e recomeçar do início."
+          "description": "Troque a fêmea"
         },
         {
           "id": 7,
           "type": "action",
-          "description": "Trocar circuito e recomeçar do início."
+          "description": "Troque o circuito"
         },
         {
           "id": 11,
@@ -386,47 +386,47 @@
         {
           "id": 0,
           "type": "action",
-          "description": "Trocar interruptor e recomeçar do início."
+          "description": "Troque o interruptor"
         },
         {
           "id": 1,
           "type": "action",
-          "description": "Trocar LEDs e/ou carregador USB e recomeçar do início."
+          "description": "Troque os LEDs e/ou carregador USB"
         },
         {
           "id": 2,
           "type": "action",
-          "description": "Trocar fusível e recomeçar do início."
+          "description": "Troque o fusível"
         },
         {
           "id": 3,
           "type": "action",
-          "description": "Carregar ou trocar bateria e recomeçar do início."
+          "description": "Carregue ou Troque a bateria"
         },
         {
           "id": 4,
           "type": "action",
-          "description": "Trocar fio vermelho da bateria e recomeçar do início."
+          "description": "Troque o fio vermelho da bateria"
         },
         {
           "id": 5,
           "type": "action",
-          "description": "Checar se está no modo teste."
+          "description": "Cheque se está no modo teste."
         },
         {
           "id": 6,
           "type": "action",
-          "description": "Trocar placa e recomeçar do início."
+          "description": "Troque a placa"
         },
         {
           "id": 7,
           "type": "action",
-          "description": "Trocar controlador e recomeçar do início."
+          "description": "Troque o controlador"
         },
         {
           "id": 8,
           "type": "end",
-          "description": "Colocar no modo de operação"
+          "description": "Coloque no modo de operação"
         }
       ]
     },
@@ -454,7 +454,7 @@
         {
           "id": 5,
           "type": "action",
-          "description": "Trocar controlador e recomeçar do início."
+          "description": "Troque controlador"
         }
       ]
     },
@@ -706,37 +706,37 @@
         {
           "id": 0,
           "type": "action",
-          "description": " Trocar fusível e recomeçar do início."
+          "description": " Troque o fusível"
         },
         {
           "id": 1,
           "type": "action",
-          "description": " Carregar ou trocar bateria e recomeçar do início."
+          "description": " Carregue ou Troque a bateria"
         },
         {
           "id": 2,
           "type": "action",
-          "description": " Trocar fio vermelho da bateria e recomeçar do início."
+          "description": "Troque o fio vermelho da bateria"
         },
         {
           "id": 3,
           "type": "action",
-          "description": "Trocar LED e recomeçar do início."
+          "description": "Troque o LED"
         },
         {
           "id": 4,
           "type": "action",
-          "description": " Trocar placa e recomeçar do início."
+          "description": " Troque a placa"
         },
         {
           "id": 5,
           "type": "action",
-          "description": "Trocar controlador e recomeçar do início."
+          "description": "Troque o controlador"
         },
         {
           "id": 9,
           "type": "end",
-          "description": "Colocar no modo de operação"
+          "description": "Coloque no modo de operação"
         }
       ]
     }

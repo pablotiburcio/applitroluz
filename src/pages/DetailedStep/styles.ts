@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     color: '#505050',
     fontSize: 20,
     fontFamily: 'Nunito_700Bold',
+    textAlign: 'center',
     marginHorizontal: 30,
   },
   imageContainer: {
