@@ -42,7 +42,7 @@ export function DifficultiesFound() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.subtitle}>
-          Informe os motivos de não ter conseguido fazer a manutenção dos componentes
+          Por qual motivo você não conseguiu realizar a manutenção?
         </Text>
       </View>
       <View style={styles.checkboxContainer}>
